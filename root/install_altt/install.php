@@ -20,7 +20,7 @@ $user->session_begin();
 $auth->acl($user->data);
 $user->setup();
 $user->add_lang('mods/info_acp_altt');
-$new_mod_version = '1.2.4';
+$new_mod_version = '1.2.5';
 $page_title = 'NV advanced last topic titles v' . $new_mod_version;
 $log_name = 'Modification "NV advanced last topic titles"' . ((request_var('update', 0) > 0) ? '-Update' : '') . ' v' . $new_mod_version;
 
@@ -134,6 +134,7 @@ switch ($mode)
 			case '1.2.1':
 			case '1.2.2':
 			case '1.2.3':
+			case '1.2.4':
 			break;
 		}
 		if ($update == 1)
@@ -155,6 +156,7 @@ switch ($mode)
 					set_config('altt_style_italic', 0);
 					set_config('altt_style_adv', 0);
 					set_config('altt_style_adv2', 'color: #FF0000;');
+				case '1.2.4':
 				break;
 			}
 

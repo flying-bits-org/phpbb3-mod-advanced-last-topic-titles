@@ -44,6 +44,7 @@ echo '							<li' . (($version == '1.2.0') ? $activemenu : '') . '><a href="inst
 echo '							<li' . (($version == '1.2.1') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.1"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.1</span></a></li>';
 echo '							<li' . (($version == '1.2.2') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.2"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.2</span></a></li>';
 echo '							<li' . (($version == '1.2.3') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.3"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.3</span></a></li>';
+echo '							<li' . (($version == '1.2.4') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.4"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.4</span></a></li>';
 echo '						</ul>';
 echo '					</div>';
 echo '					<div id="main">';

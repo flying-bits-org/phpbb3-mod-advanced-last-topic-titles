@@ -36,7 +36,7 @@
     <mod-version>
       <major>1</major>
       <minor>2</minor>
-      <revision>4</revision>
+      <revision>5</revision>
     </mod-version>
     <installation>
       <level>easy</level>
@@ -49,6 +49,20 @@
     </installation>
     <history>
       <entry>
+        <date>2008-05-22</date>
+        <rev-version>
+          <major>1</major>
+          <minor>2</minor>
+          <revision>5</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change><![CDATA[wrong permissions]]></change>
+        </changelog>
+        <changelog lang="de">
+          <change><![CDATA[falsche Berechtigungen]]></change>
+        </changelog>
+      </entry>
+      <entry>
         <date>2008-05-08</date>
         <rev-version>
           <major>1</major>
@@ -56,12 +70,12 @@
           <revision>4</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>better link adjustments</change>
-          <change>easy way to style</change>
+          <change><![CDATA[better link adjustments]]></change>
+          <change><![CDATA[easy way to style]]></change>
         </changelog>
         <changelog lang="de">
-          <change>Bessere Linkeinstellungen</change>
-          <change>einfacherer Weg um den Link im Style anzupassen</change>
+          <change><![CDATA[Bessere Linkeinstellungen]]></change>
+          <change><![CDATA[einfacherer Weg um den Link im Style anzupassen]]></change>
         </changelog>
       </entry>
       <entry>
@@ -72,16 +86,16 @@
           <revision>3</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>fixed for mysqli</change>
-          <change>consider the reading rights of the user</change>
-          <change>made the link "bold"</change>
-          <change>fixed dead links for shadow topics</change>
+          <change><![CDATA[fixed for mysqli]]></change>
+          <change><![CDATA[consider the reading rights of the user]]></change>
+          <change><![CDATA[made the link "bold"]]></change>
+          <change><![CDATA[fixed dead links for shadow topics]]></change>
         </changelog>
         <changelog lang="de">
-          <change>Fehler beseitigt für mysqli</change>
-          <change>berücksichtige die Leseberechtigungen der Besucher</change>
-          <change>Link "fett" gemacht</change>
-          <change>tote Links für Shadow-Themen repariert</change>
+          <change><![CDATA[Fehler beseitigt für mysqli]]></change>
+          <change><![CDATA[berücksichtige die Leseberechtigungen der Besucher]]></change>
+          <change><![CDATA[Link "fett" gemacht]]></change>
+          <change><![CDATA[tote Links für Shadow-Themen repariert]]></change>
         </changelog>
       </entry>
       <entry>
@@ -106,12 +120,12 @@
           <revision>1</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>added index to the db for better speed on side build</change>
-          <change>fixed some points to the coding guidelines</change>
+          <change><![CDATA[added index to the db for better speed on side build]]></change>
+          <change><![CDATA[fixed some points to the coding guidelines]]></change>
         </changelog>
         <changelog lang="de">
-          <change>Index in der Datenbank hinzugefügt, für mehr Geschwindigkeit beim Seitenaufbau.</change>
-          <change>Kleinigkeiten in Bezug zu den Coding Guidelines</change>
+          <change><![CDATA[Index in der Datenbank hinzugefügt, für mehr Geschwindigkeit beim Seitenaufbau.]]></change>
+          <change><![CDATA[Kleinigkeiten in Bezug zu den Coding Guidelines]]></change>
         </changelog>
       </entry>
       <entry>
@@ -122,16 +136,16 @@
           <revision>0</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>minor fix in template</change>
-          <change>added acp-option</change>
-          <change>no display on forum password</change>
-          <change>renamed the mod</change>
+          <change><![CDATA[minor fix in template]]></change>
+          <change><![CDATA[added acp-option]]></change>
+          <change><![CDATA[no display on forum password]]></change>
+          <change><![CDATA[renamed the mod]]></change>
         </changelog>
         <changelog lang="de">
-          <change>kleiner fix im Template</change>
-          <change>ACP-Einstellung hinzugefügt</change>
-          <change>keine Anzeige wenn ein Forum Passwort geschützt ist</change>
-          <change>Modifikation umbenannt</change>
+          <change><![CDATA[kleiner fix im Template]]></change>
+          <change><![CDATA[ACP-Einstellung hinzugefügt]]></change>
+          <change><![CDATA[keine Anzeige wenn ein Forum Passwort geschützt ist]]></change>
+          <change><![CDATA[Modifikation umbenannt]]></change>
         </changelog>
       </entry>
       <entry>
@@ -142,10 +156,10 @@
           <revision>0</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>unreleased</change>
+          <change><![CDATA[unreleased]]></change>
         </changelog>
         <changelog lang="de">
-          <change>unveröffentlicht</change>
+          <change><![CDATA[unveröffentlicht]]></change>
         </changelog>
       </entry>
       <entry>
@@ -156,12 +170,12 @@
           <revision>1</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>minor fix in template</change>
-          <change>fixed short version of topic title</change>
+          <change><![CDATA[minor fix in template]]></change>
+          <change><![CDATA[fixed short version of topic title]]></change>
         </changelog>
         <changelog lang="de">
-          <change>kleiner fix im Template</change>
-          <change>Anzeige des gekürzten Themen-Titels gefixed</change>
+          <change><![CDATA[kleiner fix im Template]]></change>
+          <change><![CDATA[Anzeige des gekürzten Themen-Titels gefixed]]></change>
         </changelog>
       </entry>
       <entry>
@@ -172,12 +186,12 @@
           <revision>0</revision>
         </rev-version>
         <changelog lang="en-gb">
-          <change>fixed the large number of sqls</change>
-          <change>released</change>
+          <change><![CDATA[fixed the large number of sqls]]></change>
+          <change><![CDATA[released]]></change>
         </changelog>
         <changelog lang="de">
-          <change>Problem mit den vielen SQL-Abfragen gelöst</change>
-          <change>released</change>
+          <change><![CDATA[Problem mit den vielen SQL-Abfragen gelöst]]></change>
+          <change><![CDATA[released]]></change>
         </changelog>
       </entry>
     </history>
@@ -202,16 +216,25 @@
 	$sql_array['SELECT'] .= ', t.topic_title, t.topic_id, t.topic_last_post_id';]]></action>
       </edit>
       <edit>
+        <find><![CDATA[	$branch_root_id = $root_data['forum_id'];
+	while ($row = $db->sql_fetchrow($result))
+	{
+		$forum_id = $row['forum_id'];]]></find>
+        <action type="after-add"><![CDATA[		//for NV ALTT
+		$row['nv_permission_forum_id'] = $row['forum_id'];]]></action>
+      </edit>
+      <edit>
         <find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
         <action type="after-add"><![CDATA[				//for NV ALTT
 				$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
 				$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
+				$forum_rows[$parent_id]['nv_permission_forum_id'] = $row['forum_id'];
 				$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];]]></action>
       </edit>
       <edit>
         <find><![CDATA[			$last_post_subject = $row['forum_last_post_subject'];]]></find>
         <action type="after-add"><![CDATA[			//for NV ALTT
-			if ($config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id']))
+			if ($config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['nv_permission_forum_id']))
 			{
 				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
 				$altt_link_name_short	= (utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name);

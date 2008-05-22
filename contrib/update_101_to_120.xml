@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.0.1.xsd">
+  <header>
+    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+    <title lang="en-gb">NV advanced last topic titles</title>
+    <title lang="de">NV advanced last topic titles</title>
+    <description lang="en-gb">see normal install-file</description>
+    <author-notes lang="en-gb">see normal install-file
+
+
+	NOTE: If you want to be informed, when there should be a new version of this MOD available,
+	Please register on my Site and join the Group "MODs - NV Advanced Last Topic Titles - Newsletter".
+
+	I you want to be informed when i release any new version for one of my MODs join the Group "MODs - Newsletter"</author-notes>
+    <author-group>
+      <author>
+        <realname>(N/A) / nick: clusedo</realname>
+        <email>nickvergessen@gmx.de</email>
+        <username>nickvergessen</username>
+        <homepage>http://www.flying-bits.org/</homepage>
+        <contributions />
+      </author>
+    </author-group>
+    <mod-version>
+      <major>1</major>
+      <minor>2</minor>
+      <revision>0</revision>
+    </mod-version>
+    <installation>
+      <level>easy</level>
+      <time>240</time>
+      <target-version>
+        <target-primary>3.0.RC7</target-primary>
+        <target-major allow="exact">3</target-major>
+        <target-minor allow="exact">0</target-minor>
+      </target-version>
+    </installation>
+    <history>
+      <entry>
+        <date>2007-10-15</date>
+        <rev-version>
+          <major>1</major>
+          <minor>2</minor>
+          <revision>0</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>minor fix in template</change>
+          <change>added acp-option</change>
+          <change>no display on forum password</change>
+          <change>renamed the mod</change>
+        </changelog>
+        <changelog lang="de">
+          <change>kleiner fix im Template</change>
+          <change>ACP-Einstellung hinzugefügt</change>
+          <change>keine Anzeige wenn ein Forum Passwort geschützt ist</change>
+          <change>Modifikation umbenannt</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-10-12</date>
+        <rev-version>
+          <major>1</major>
+          <minor>1</minor>
+          <revision>0</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>unreleased</change>
+        </changelog>
+        <changelog lang="de">
+          <change>unveröffentlicht</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-09-04</date>
+        <rev-version>
+          <major>1</major>
+          <minor>0</minor>
+          <revision>1</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>minor fix in template</change>
+          <change>fixed short version of topic title</change>
+        </changelog>
+        <changelog lang="de">
+          <change>kleiner fix im Template</change>
+          <change>Anzeige des gekürzten Themen-Titels gefixed</change>
+        </changelog>
+      </entry>
+      <entry>
+        <date>2007-08-04</date>
+        <rev-version>
+          <major>1</major>
+          <minor>0</minor>
+          <revision>0</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>fixed the large number of sqls</change>
+          <change>released</change>
+        </changelog>
+        <changelog lang="de">
+          <change>Problem mit den vielen SQL-Abfragen gelöst</change>
+          <change>released</change>
+        </changelog>
+      </entry>
+    </history>
+    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
+  </header>
+  <action-group>
+    <sql>INSERT INTO phpbb_config(config_name, config_value, is_dynamic)
+VALUES ('altt_char_limit', 25, 1);
+INSERT INTO phpbb_config(config_name, config_value, is_dynamic)
+VALUES ('altt_last_post', 1, 1);
+INSERT INTO phpbb_config(config_name, config_value, is_dynamic)
+VALUES ('altt_active', 1, 1);</sql>
+    <copy>
+      <file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
+      <file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
+      <file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
+      <file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
+      <file from="root/language/en/mods/lang_altt.php" to="language/en/mods/lang_altt.php" />
+      <file from="languages/root/language/de/mods/info_acp_altt.php" to="language/de/mods/info_acp_altt.php" />
+      <file from="languages/root/language/de/mods/lang_altt.php" to="language/de/mods/lang_altt.php" />
+    </copy>
+    <open src="includes/functions_display.php">
+      <edit>
+        <find><![CDATA[$last_post_title = 0; // values: 0 and 1 //if 0 it'll take last TOPIC title]]></find>
+        <action type="replace-with"><![CDATA[]]></action>
+      </edit>
+      <edit>
+        <find><![CDATA[	if ($last_post_title != 1)]]></find>
+        <action type="replace-with"><![CDATA[	if (!$config['altt_last_post'])]]></action>
+      </edit>
+      <edit>
+        <find><![CDATA[				if ($last_post_title != 1)
+				{
+					$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
+					$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
+				}]]></find>
+        <action type="replace-with"><![CDATA[				if (!$config['altt_last_post'])
+				{
+					$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
+					$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
+				}
+				$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];]]></action>
+      </edit>
+      <edit>
+        <find><![CDATA[			if ($last_post_title != 1)
+			{
+				$last_topic_title = $row['topic_title'];
+				$last_topic_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id']);
+				$last_topic_title_substr = ( utf8_strlen($last_topic_title) > 30 )? (utf8_substr($last_topic_title,0,25) . '...') : ($last_topic_title);
+				$last_post_subject_substr = '';
+			}
+			else
+			{
+				$last_topic_title = '';
+				$last_topic_url = '';
+				$last_topic_title_substr = '';
+				$last_post_subject_substr = ( utf8_strlen($last_post_subject) > 30 )? (utf8_substr($last_post_subject,0,25) . '...') : ($last_post_subject);
+			}]]></find>
+        <action type="replace-with"><![CDATA[			if (!$config['altt_last_post'])
+			{
+				$last_topic_title = $row['topic_title'];
+				$last_topic_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id']);
+				$last_topic_title_substr = ( utf8_strlen($last_topic_title) > $config['altt_char_limit'] + 3 )? (utf8_substr($last_topic_title, 0, $config['altt_char_limit']) . '...') : ($last_topic_title);
+				$last_post_subject_substr = '';
+			}
+			else
+			{
+				$last_topic_title = '';
+				$last_topic_url = '';
+				$last_topic_title_substr = '';
+				$last_post_subject_substr = ( utf8_strlen($last_post_subject) > $config['altt_char_limit'] + 3 )? (utf8_substr($last_post_subject, 0, $config['altt_char_limit']) . '...') : ($last_post_subject);
+			}]]></action>
+      </edit>
+      <edit>
+        <find><![CDATA[			'LAST_TOPIC_TITLE'		=> (isset($last_topic_title))	? censor_text($last_topic_title) : '',
+			'LAST_TOPIC_TITLE_SUBSTR'	=> (isset($last_topic_title_substr)) ? censor_text($last_topic_title_substr) : '',
+			'LAST_POST_SUBJECT_SUBSTR'	=> (isset($last_post_subject_substr)) ? censor_text($last_post_subject_substr) : '',
+			'U_LAST_TOPIC'			=> (isset($last_topic_url)) ? $last_topic_url : '',]]></find>
+        <action type="replace-with"><![CDATA[			'LAST_TOPIC_TITLE'			=> (isset($last_topic_title) && $config['altt_active'] && !$row['forum_password'])	? censor_text($last_topic_title) : '',
+			'LAST_TOPIC_TITLE_SHORT'	=> (isset($last_topic_title_substr) && $config['altt_active'] && !$row['forum_password']) ? censor_text($last_topic_title_substr) : '',
+			'LAST_POST_SUBJECT_SHORT'	=> (isset($last_post_subject_substr) && $config['altt_active'] && !$row['forum_password']) ? censor_text($last_post_subject_substr) : '',
+			'U_LAST_TOPIC'				=> (isset($last_topic_url) && $config['altt_active'] && !$row['forum_password']) ? $last_topic_url : '',]]></action>
+      </edit>
+    </open>
+    <open src="styles/prosilver/template/forumlist_body.html">
+      <edit>
+        <find><![CDATA[<!-- IF forumrow.LAST_TOPIC_TITLE_SUBSTR --><a href="{forumrow.U_LAST_TOPIC}" title="{forumrow.LAST_TOPIC_TITLE}">{forumrow.LAST_TOPIC_TITLE_SUBSTR}</a><!-- ELSEIF forumrow.LAST_POST_SUBJECT_SUBSTR --><a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}">{forumrow.LAST_POST_SUBJECT_SUBSTR}</a><!-- ENDIF --><br />]]></find>
+        <action type="replace-with"><![CDATA[<!-- IF forumrow.LAST_TOPIC_TITLE_SHORT --><a href="{forumrow.U_LAST_TOPIC}" title="{forumrow.LAST_TOPIC_TITLE}">{forumrow.LAST_TOPIC_TITLE_SHORT}</a><br /><!-- ELSEIF forumrow.LAST_POST_SUBJECT_SHORT --><a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}">{forumrow.LAST_POST_SUBJECT_SHORT}</a><br /><!-- ENDIF -->]]></action>
+      </edit>
+    </open>
+  </action-group>
+</mod>

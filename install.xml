@@ -26,7 +26,7 @@
 	Wenn du über alle MODs von mir informiert werden willst, trette der Gruppe "MODs - Newsletter" bei</author-notes>
     <author-group>
       <author>
-        <realname>(N/A) / nick: clusedo</realname>
+        <realname>Joas Schilling</realname>
         <email>nickvergessen@gmx.de</email>
         <username>nickvergessen</username>
         <homepage>http://www.flying-bits.org/</homepage>
@@ -36,18 +36,34 @@
     <mod-version>
       <major>1</major>
       <minor>2</minor>
-      <revision>3</revision>
+      <revision>4</revision>
     </mod-version>
     <installation>
       <level>easy</level>
       <time>240</time>
       <target-version>
-        <target-primary>3.0.0</target-primary>
+        <target-primary>3.0.1</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
     </installation>
     <history>
+      <entry>
+        <date>2008-05-08</date>
+        <rev-version>
+          <major>1</major>
+          <minor>2</minor>
+          <revision>4</revision>
+        </rev-version>
+        <changelog lang="en-gb">
+          <change>better link adjustments</change>
+          <change>easy way to style</change>
+        </changelog>
+        <changelog lang="de">
+          <change>Bessere Linkeinstellungen</change>
+          <change>einfacherer Weg um den Link im Style anzupassen</change>
+        </changelog>
+      </entry>
       <entry>
         <date>2008-03-16</date>
         <rev-version>
@@ -179,47 +195,63 @@
       <edit>
         <find><![CDATA[		$sql_array['SELECT'] .= ', fa.user_id';
 	}]]></find>
-        <action type="after-add"><![CDATA[	if (!$config['altt_last_post'])
-	{
-		$sql_array['LEFT_JOIN'][] = array(
-			'FROM'	=> array(TOPICS_TABLE => 't'),
-			'ON'	=> "f.forum_last_post_id = t.topic_last_post_id AND t.topic_moved_id = 0"
-		);
-		$sql_array['SELECT'] .= ', t.topic_title, t.topic_id, t.topic_last_post_id';
-	}]]></action>
+        <action type="after-add"><![CDATA[	$sql_array['LEFT_JOIN'][] = array(//for NV ALTT
+		'FROM'	=> array(TOPICS_TABLE => 't'),
+		'ON'	=> "f.forum_last_post_id = t.topic_last_post_id AND t.topic_moved_id = 0"
+	);
+	$sql_array['SELECT'] .= ', t.topic_title, t.topic_id, t.topic_last_post_id';]]></action>
       </edit>
       <edit>
         <find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
-        <action type="after-add"><![CDATA[				if (!$config['altt_last_post'])
-				{
-					$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
-					$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
-				}
+        <action type="after-add"><![CDATA[				//for NV ALTT
+				$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
+				$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
 				$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];]]></action>
       </edit>
       <edit>
         <find><![CDATA[			$last_post_subject = $row['forum_last_post_subject'];]]></find>
-        <action type="after-add"><![CDATA[			if (!$config['altt_last_post'])
+        <action type="after-add"><![CDATA[			//for NV ALTT
+			if ($config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id']))
 			{
-				$last_topic_title = $row['topic_title'];
-				$last_topic_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id']);
-				$last_topic_title_substr = ( utf8_strlen($last_topic_title) > $config['altt_char_limit'] + 3 )? (utf8_substr($last_topic_title, 0, $config['altt_char_limit']) . '...') : ($last_topic_title);
-				$last_post_subject_substr = '';
+				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
+				$altt_link_name_short	= (utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name);
+				$altt_style_bold		= $config['altt_style_bold'];
+				$altt_style_italic		= $config['altt_style_italic'];
+				$altt_style_adv			= $config['altt_style_adv'];
+				$altt_style_adv2		= $config['altt_style_adv2'];
+				switch ($config['altt_link_url'])
+				{
+					case 1:
+						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id']);
+					break;
+					case 2:
+						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id'] . '&amp;view=unread') . '#unread';
+					break;
+					default:
+						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;p=' . $row['forum_last_post_id']) . '#p' . $row['forum_last_post_id'];
+					break;
+				}
 			}
 			else
 			{
-				$last_topic_title = '';
-				$last_topic_url = '';
-				$last_topic_title_substr = '';
-				$last_post_subject_substr = ( utf8_strlen($last_post_subject) > $config['altt_char_limit'] + 3 )? (utf8_substr($last_post_subject, 0, $config['altt_char_limit']) . '...') : ($last_post_subject);
+				$altt_link_name_short = $altt_link_name = $altt_style_bold = $altt_style_italic = $altt_style_adv = $altt_style_adv2 = $altt_link_url = '';
 			}]]></action>
       </edit>
       <edit>
+        <find><![CDATA[$last_post_subject = $last_post_time = $last_post_url = '';]]></find>
+        <action type="after-add"><![CDATA[			//for NV ALTT
+			$altt_link_name_short = $altt_link_name = $altt_style_bold = $altt_style_italic = $altt_style_adv = $altt_style_adv2 = $altt_link_url = '';]]></action>
+      </edit>
+      <edit>
         <find><![CDATA[=> censor_text($last_post_subject),]]></find>
-        <action type="after-add"><![CDATA[			'LAST_TOPIC_TITLE'			=> (isset($last_topic_title) && $config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id'])) ? censor_text($last_topic_title) : '',
-			'LAST_TOPIC_TITLE_SHORT'	=> (isset($last_topic_title_substr) && $config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id'])) ? censor_text($last_topic_title_substr) : '',
-			'LAST_POST_SUBJECT_SHORT'	=> (isset($last_post_subject_substr) && $config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id'])) ? censor_text($last_post_subject_substr) : '',
-			'U_LAST_TOPIC'				=> (isset($last_topic_url) && $config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id'])) ? $last_topic_url : '',]]></action>
+        <action type="after-add"><![CDATA[			//for NV ALTT
+			'ALTT_LINK_NAME_SHORT'		=> censor_text($altt_link_name_short),
+			'ALTT_LINK_NAME'			=> censor_text($altt_link_name),
+			'ALTT_STYLE_BOLD'			=> $altt_style_bold,
+			'ALTT_STYLE_ITALIC'			=> $altt_style_italic,
+			'ALTT_STYLE_ADV'			=> $altt_style_adv,
+			'ALTT_STYLE_ADV2'			=> $altt_style_adv2,
+			'U_ALTT_LINK'				=> $altt_link_url,]]></action>
       </edit>
     </open>
     <open src="styles/prosilver/template/forumlist_body.html">
@@ -227,7 +259,7 @@
         <find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></find>
         <inline-edit>
           <inline-find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></inline-find>
-          <inline-action type="after-add"><![CDATA[ <!-- IF forumrow.LAST_TOPIC_TITLE_SHORT --><a style="font-weight: bold;" href="{forumrow.U_LAST_TOPIC}" title="{forumrow.LAST_TOPIC_TITLE}">{forumrow.LAST_TOPIC_TITLE_SHORT}</a><br /><!-- ELSEIF forumrow.LAST_POST_SUBJECT_SHORT --><a style="font-weight: bold;" href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}">{forumrow.LAST_POST_SUBJECT_SHORT}</a><br /><!-- ENDIF -->]]></inline-action>
+          <inline-action type="after-add"><![CDATA[ <!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><br /><!-- ENDIF -->]]></inline-action>
         </inline-edit>
       </edit>
     </open>

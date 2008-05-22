@@ -40,9 +40,10 @@ echo '							<li' . (($mode == 'else') ? $activemenu : '') . '><a href="install.
 echo '							<li class="header">' . $user->lang['INSTALLER_INSTALL_MENU'] . '</li>';
 echo '							<li' . (($mode == 'install') ? $activemenu : '') . '><a href="install.php?mode=install"><span>' . sprintf($user->lang['INSTALLER_INSTALL_VERSION'], $new_mod_version) . '</span></a></li>';
 echo '							<li class="header">' . $user->lang['INSTALLER_UPDATE_MENU'] . '</li>';
-echo '							<li' . (($mode == 'update120') ? $activemenu : '') . '><a href="install.php?mode=update120&amp;v=1.2.0"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.0</span></a></li>';
-echo '							<li' . (($mode == 'update121') ? $activemenu : '') . '><a href="install.php?mode=update121&amp;v=1.2.1"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.1</span></a></li>';
-echo '							<li' . (($mode == 'update122') ? $activemenu : '') . '><a href="install.php?mode=update122&amp;v=1.2.2"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.2</span></a></li>';
+echo '							<li' . (($version == '1.2.0') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.0"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.0</span></a></li>';
+echo '							<li' . (($version == '1.2.1') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.1"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.1</span></a></li>';
+echo '							<li' . (($version == '1.2.2') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.2"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.2</span></a></li>';
+echo '							<li' . (($version == '1.2.3') ? $activemenu : '') . '><a href="install.php?mode=update&amp;v=1.2.3"><span>' . $user->lang['INSTALLER_UPDATE_VERSION'] . '1.2.3</span></a></li>';
 echo '						</ul>';
 echo '					</div>';
 echo '					<div id="main">';
@@ -90,7 +91,7 @@ if ($mode == 'install')
 		echo '</form>';
 	}
 }
-else if (($mode == 'update120') || ($mode == 'update121') || ($mode == 'update122'))
+else if ($mode == 'update')
 {
 	if ($update == 1)
 	{
@@ -119,7 +120,7 @@ else if (($mode == 'update120') || ($mode == 'update121') || ($mode == 'update12
 		echo '			<dt><label for="update">' . sprintf($user->lang['INSTALLER_UPDATE_NOTE'], $version, $new_mod_version) . ':</label></dt>';
 		echo '			<dd><label><input name="update" value="1" class="radio" type="radio" />' . $user->lang['YES'] . '</label><label><input name="update" value="0" checked="checked" class="radio" type="radio" />' . $user->lang['NO'] . '</label></dd>';
 		echo '		</dl>';
-		if ($mode == 'update120')
+		if ($ask_for_index)
 		{
 			echo '		<dl>';
 			echo '			<dt><label for="index">' . $user->lang['CREATE_INDEX'] . ':</label>';

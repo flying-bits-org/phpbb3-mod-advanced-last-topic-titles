@@ -25,7 +25,7 @@
 	Wenn du über alle MODs von mir informiert werden willst, trette der Gruppe "MODs - Newsletter" bei</author-notes>
     <author-group>
       <author>
-        <realname>(N/A) / nick: clusedo</realname>
+        <realname>Joas Schilling</realname>
         <email>nickvergessen@gmx.de</email>
         <username>nickvergessen</username>
         <homepage>http://www.flying-bits.org/</homepage>
@@ -35,13 +35,13 @@
     <mod-version>
       <major>1</major>
       <minor>2</minor>
-      <revision>3</revision>
+      <revision>4</revision>
     </mod-version>
     <installation>
       <level>easy</level>
       <time>240</time>
       <target-version>
-        <target-primary>3.0.0</target-primary>
+        <target-primary>3.0.1</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>

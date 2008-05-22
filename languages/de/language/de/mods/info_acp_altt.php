@@ -25,8 +25,18 @@ $lang = array_merge($lang, array(
 	'ALTT_CONFIG'			=> 'Konfiguration',
 	'ALTT_CONFIG_SAVED'		=> 'Einstellungen gespeichert',
 
-	'ALTT_LASTPOST'			=> 'Letzter Beitragstitel',
-	'ALTT_LASTPOST_EXP'		=> 'Wenn diese Option auf "Nein" gesetzt wird, wird der Titel des letzten Themas angezeigt.',
+	'ALTT_LINK_NAME'			=> 'Link-Bezeichnung ist der Titel des',
+	'ALTT_LINK_URL'				=> 'Link führt zum',
+	'ALTT_FIRST_POST'			=> 'Ersten Beitrag des letzten Themas',
+	'ALTT_LAST_POST'			=> 'Letztem Beitrag des letzten Themas',
+	'ALTT_FIRST_UNREAD_POST'	=> 'Ersten ungelesenem Beitrag des letzten Themas',
+	'ALTT_FIRST_UNREAD_POST_NOTE'	=> 'Achtung: Link führt zum ersten Post wenn kein neuer vorhanden ist.',
+	'ALTT_POST'					=> 'Beitrages',
+	'ALTT_TOPIC'				=> 'Themas',
+	'ALTT_LINK_STYLE'			=> 'Link-Darstellung',
+	'ALTT_BOLD'					=> 'Fett',
+	'ALTT_ITALIC'				=> 'Kursiv',
+	'ALTT_ADV'					=> 'weitere:',
 
 	'ALTT_TITLE'			=> 'NV advanced last topic titles',
 

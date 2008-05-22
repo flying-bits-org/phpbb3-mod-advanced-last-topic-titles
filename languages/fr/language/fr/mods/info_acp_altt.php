@@ -25,8 +25,18 @@ $lang = array_merge($lang, array(
 	'ALTT_CONFIG'			=> 'Configuration de NV advanced last topic titles',
 	'ALTT_CONFIG_SAVED'		=> 'Sauvegarder les changements',
 
-	'ALTT_LASTPOST'			=> 'Dernier titre de post',
-	'ALTT_LASTPOST_EXP'		=> 'Si cette option est sur "non", le dernier titre de sujet apparaitra.',
+	'ALTT_LINK_NAME'		=> 'Le nom du lien est le titre de',
+	'ALTT_LINK_URL'			=> 'le lien mène à',
+	'ALTT_FIRST_POST'		=> 'Premier message du dernier sujet',
+	'ALTT_LAST_POST'		=> 'Dernier message du dernier sujet',
+	'ALTT_FIRST_UNREAD_POST'	=> 'Premier message non lu du dernier sujet',
+	'ALTT_FIRST_UNREAD_POST_NOTE'	=> 'Note: S\'il n\'y a pas de message non lu, le lien mènera vers le premier message.',
+	'ALTT_POST'				=> 'Message',
+	'ALTT_TOPIC'			=> 'Sujet',
+	'ALTT_LINK_STYLE'		=> 'Style de lien',
+	'ALTT_BOLD'				=> 'Gras',
+	'ALTT_ITALIC'			=> 'Italique',
+	'ALTT_ADV'				=> 'plus:',
 
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 

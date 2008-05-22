@@ -20,8 +20,9 @@ $user->session_begin();
 $auth->acl($user->data);
 $user->setup();
 $user->add_lang('mods/info_acp_altt');
-$new_mod_version = '1.2.3';
+$new_mod_version = '1.2.4';
 $page_title = 'NV advanced last topic titles v' . $new_mod_version;
+$log_name = 'Modification "NV advanced last topic titles"' . ((request_var('update', 0) > 0) ? '-Update' : '') . ' v' . $new_mod_version;
 
 $mode = request_var('mode', 'else', true);
 function split_sql_file($sql, $delimiter)
@@ -71,10 +72,23 @@ function altt_create_index($table, $column)
 	}
 	$db->sql_query($sql);
 }
+function add_module($array)
+{
+	global $user;
+	$modules = new acp_modules();
+	$failed = $modules->update_module_data($array, true);
+	if ($failed == 'PARENT_NO_EXIST')
+	{
+		$user->add_lang('mods/info_acp_gallery');
+		trigger_error(sprintf($user->lang['MISSING_PARENT_MODULE'], $array['parent_id'], $user->lang[$array['module_langname']]));
+	}
+}
+$install = request_var('install', 0);
+$update = request_var('update', 0);
+
 switch ($mode)
 {
 	case 'install':
-		$install = request_var('install', 0);
 		$installed = false;
 		if ($install == 1)
 		{
@@ -85,70 +99,71 @@ switch ($mode)
 			}
 
 			set_config('altt_char_limit', 64);
-			set_config('altt_last_post', 0);
+			set_config('altt_link_name', 0);
+			set_config('altt_link_url', 0);
+			set_config('altt_style_bold', 1);
+			set_config('altt_style_italic', 0);
+			set_config('altt_style_adv', 0);
+			set_config('altt_style_adv2', 'color: #FF0000;');
 			set_config('altt_active', 1);
 			set_config('altt_mod_version', $new_mod_version);
 
 			// create the acp modules
 			$modules = new acp_modules();
-			$altt = array(
-				'module_basename'	=> '',
-				'module_enabled'	=> 1,
-				'module_display'	=> 1,
-				'parent_id'			=> 31,
-				'module_class'		=> 'acp',
-				'module_langname'	=> 'ALTT_TITLE',
-				'module_mode'		=> '',
-				'module_auth'		=> ''
-			);
-			$modules->update_module_data($altt);
-			$config_altt = array(
-				'module_basename'	=> 'altt',
-				'module_enabled'	=> 1,
-				'module_display'	=> 1,
-				'parent_id'			=> $altt['module_id'],
-				'module_class'		=> 'acp',
-				'module_langname'	=> 'ALTT_CONFIG',
-				'module_mode'		=> 'overview',
-				'module_auth'		=> ''
-			);
-			$modules->update_module_data($config_altt);
+			$altt = array('module_basename' => '', 'module_enabled' => 1, 'module_display' => 1, 'parent_id' => 31, 'module_class' => 'acp', 'module_langname' => 'ALTT_TITLE', 'module_mode' => '', 'module_auth' => '');
+			add_module($altt);
+			$sql = 'SELECT module_id FROM ' . MODULES_TABLE . " WHERE module_langname = 'ALTT_TITLE' LIMIT 1";
+			$result = $db->sql_query($sql);
+			$altt = $db->sql_fetchrow($result);
+			$config_altt = array('module_basename' => 'altt', 'module_enabled' => 1, 'module_display' => 1, 'parent_id' => $altt['module_id'], 'module_class' => 'acp', 'module_langname' => 'ALTT_CONFIG', 'module_mode' => 'overview', 'module_auth' => '');
+			add_module($config_altt);
+
 			// clear cache and log what we did
 			$cache->purge();
-			add_log('admin', 'NV advanced last topic titles v' . $new_mod_version . ' installed');
+			add_log('admin', 'LOG_INSTALL_INSTALLED', $log_name);
+			add_log('admin', 'LOG_PURGE_CACHE');
 			$installed = true;
 		}
 	break;
-	case 'update120':
-		$update = request_var('update', 0);
-		$version = request_var('v', '0', true);
-		$updated = false;
+	case 'update':
+		$updated = $ask_for_index = false;
+		switch ($version)
+		{
+			case '1.2.0':
+				$ask_for_index = true;
+			case '1.2.1':
+			case '1.2.2':
+			case '1.2.3':
+			break;
+		}
 		if ($update == 1)
 		{
-			$index = request_var('index', 0);
-			if ($index == 1)
+			switch ($version)
 			{
-				altt_create_index(TOPICS_TABLE, 'topic_last_post_id');
+				case '1.2.0':
+					$index = request_var('index', 0);
+					if ($index == 1)
+					{
+						altt_create_index(TOPICS_TABLE, 'topic_last_post_id');
+					}
+				case '1.2.1':
+				case '1.2.2':
+				case '1.2.3':
+					set_config('altt_link_name', 0);
+					set_config('altt_link_url', 0);
+					set_config('altt_style_bold', 1);
+					set_config('altt_style_italic', 0);
+					set_config('altt_style_adv', 0);
+					set_config('altt_style_adv2', 'color: #FF0000;');
+				break;
 			}
 
-			set_config('altt_mod_version', $new_mod_version, true);
+
 			// clear cache and log what we did
+			set_config('altt_mod_version', $new_mod_version);
 			$cache->purge();
-			add_log('admin', 'NV advanced last topic titles updated to v' . $new_mod_version);
-			$updated = true;
-		}
-	break;
-	case 'update121':
-	case 'update122':
-		$update = request_var('update', 0);
-		$version = request_var('v', '0', true);
-		$updated = false;
-		if ($update == 1)
-		{
-			set_config('altt_mod_version', $new_mod_version, true);
-			// clear cache and log what we did
-			$cache->purge();
-			add_log('admin', 'NV advanced last topic titles updated to v' . $new_mod_version);
+			add_log('admin', 'LOG_INSTALL_INSTALLED', $log_name);
+			add_log('admin', 'LOG_PURGE_CACHE');
 			$updated = true;
 		}
 	break;

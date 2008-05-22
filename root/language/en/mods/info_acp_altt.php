@@ -25,8 +25,19 @@ $lang = array_merge($lang, array(
 	'ALTT_CONFIG'				=> 'configuration of NV advanced last topic titles',
 	'ALTT_CONFIG_SAVED'			=> 'saved adjustment',
 
-	'ALTT_LASTPOST'				=> 'last posttitle',
-	'ALTT_LASTPOST_EXP'			=> 'If this option is set to "no", the last topictitle is displayed.',
+	'ALTT_LINK_NAME'			=> 'link-name is the title of',
+	'ALTT_LINK_URL'				=> 'link leads to',
+	'ALTT_FIRST_POST'			=> 'First post of last topic',
+	'ALTT_LAST_POST'			=> 'Last post of last topic',
+	'ALTT_FIRST_UNREAD_POST'	=> 'First unread post of last topic',
+	'ALTT_FIRST_UNREAD_POST_NOTE'	=> 'Note: If there is no unread post, the link leads to the first post.',
+	'ALTT_POST'					=> 'Post',
+	'ALTT_TOPIC'				=> 'Topic',
+	'ALTT_LINK_STYLE'			=> 'Link-Style',
+	'ALTT_BOLD'					=> 'Bold',
+	'ALTT_ITALIC'				=> 'Italic',
+	'ALTT_ADV'					=> 'more:',
+
 
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 

@@ -41,7 +41,7 @@
       <level>easy</level>
       <time>240</time>
       <target-version>
-        <target-primary>3.0.1</target-primary>
+        <target-primary>3.0.2</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
@@ -78,7 +78,7 @@
       </edit>
       <edit>
         <find><![CDATA[if ($config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['forum_id']))]]></find>
-        <action type="replace-with"><![CDATA[if ($config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['nv_permission_forum_id']))]]></action>
+        <action type="replace-with"><![CDATA[if ($config['altt_active'] && (!$row['forum_password'] || $config['altt_ignore_password']) && ($auth->acl_get('f_read', $row['nv_permission_forum_id']) || $config['altt_ignore_rights']))]]></action>
       </edit>
     </open>
     <diy-instructions lang="en-gb">browse to install_altt/install.php and run the installer</diy-instructions>

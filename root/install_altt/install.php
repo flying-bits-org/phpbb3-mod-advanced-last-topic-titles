@@ -106,6 +106,8 @@ switch ($mode)
 			set_config('altt_style_adv', 0);
 			set_config('altt_style_adv2', 'color: #FF0000;');
 			set_config('altt_active', 1);
+			set_config('altt_ignore_rights', 0);
+			set_config('altt_ignore_password', 0);
 			set_config('altt_mod_version', $new_mod_version);
 
 			// create the acp modules
@@ -157,6 +159,8 @@ switch ($mode)
 					set_config('altt_style_adv', 0);
 					set_config('altt_style_adv2', 'color: #FF0000;');
 				case '1.2.4':
+					set_config('altt_ignore_rights', 0);
+					set_config('altt_ignore_password', 0);
 				break;
 			}
 

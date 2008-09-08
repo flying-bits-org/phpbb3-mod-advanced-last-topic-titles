@@ -38,6 +38,10 @@ $lang = array_merge($lang, array(
 	'ALTT_ITALIC'				=> 'Italic',
 	'ALTT_ADV'					=> 'more:',
 
+	'ALTT_IGNORE_PASSWORD'		=> 'Ignore password',
+	'ALTT_IGNORE_PASSWORD_EXP'	=> 'The title shows up, even if there\'s a forum-password.',
+	'ALTT_IGNORE_RIGHTS'		=> 'Ignore permissions',
+	'ALTT_IGNORE_RIGHTS_EXP'	=> 'If you ignore the permissions, the title shows up, even if you are not able to read the post.',
 
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 

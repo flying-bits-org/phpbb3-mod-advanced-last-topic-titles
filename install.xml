@@ -42,14 +42,14 @@
       <level>easy</level>
       <time>240</time>
       <target-version>
-        <target-primary>3.0.1</target-primary>
+        <target-primary>3.0.2</target-primary>
         <target-major allow="exact">3</target-major>
         <target-minor allow="exact">0</target-minor>
       </target-version>
     </installation>
     <history>
       <entry>
-        <date>2008-05-22</date>
+        <date>2008-09-09</date>
         <rev-version>
           <major>1</major>
           <minor>2</minor>
@@ -57,9 +57,13 @@
         </rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[wrong permissions]]></change>
+          <change><![CDATA[Option to ignore permissions]]></change>
+          <change><![CDATA[Option to ignore forum-password]]></change>
         </changelog>
         <changelog lang="de">
           <change><![CDATA[falsche Berechtigungen]]></change>
+          <change><![CDATA[Option zum ignorieren der Berechtigungen]]></change>
+          <change><![CDATA[Option zum ignorieren des Forum-Passwortes]]></change>
         </changelog>
       </entry>
       <entry>
@@ -234,7 +238,7 @@
       <edit>
         <find><![CDATA[			$last_post_subject = $row['forum_last_post_subject'];]]></find>
         <action type="after-add"><![CDATA[			//for NV ALTT
-			if ($config['altt_active'] && !$row['forum_password'] && $auth->acl_get('f_read', $row['nv_permission_forum_id']))
+			if ($config['altt_active'] && (!$row['forum_password'] || $config['altt_ignore_password']) && ($auth->acl_get('f_read', $row['nv_permission_forum_id']) || $config['altt_ignore_rights']))
 			{
 				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
 				$altt_link_name_short	= (utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name);

@@ -27,6 +27,18 @@
 			<dd><input id="altt_style" name="altt_style_adv" class="radio" type="checkbox" value="1" <!-- IF ALTT_STYLE_ADV -->checked="checked"<!-- ENDIF --> /><span style="font-weight: bold;">&nbsp;{L_ALTT_ADV}</span>&nbsp;<input type="text" name="altt_style_adv2" size="32" maxlength="255" value="{ALTT_STYLE_ADV2}" /></dd>
 		</dl>
 		<dl>
+			<dt><label for="altt_active">{L_ALTT_IGNORE_RIGHTS}:</label><br />
+			<span>{L_ALTT_IGNORE_RIGHTS_EXP}</span></dt>
+			<dd><input type="radio" class="radio" name="altt_ignore_rights" value="1" <!-- IF ALTT_IGNORE_RIGHTS -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="altt_ignore_rights" value="0" <!-- IF not ALTT_IGNORE_RIGHTS -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
+			<dt><label for="altt_active">{L_ALTT_IGNORE_PASSWORD}:</label><br />
+			<span>{L_ALTT_IGNORE_PASSWORD_EXP}</span></dt>
+			<dd><input type="radio" class="radio" name="altt_ignore_password" value="1" <!-- IF ALTT_IGNORE_PASSWORD -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
+				<input type="radio" class="radio" name="altt_ignore_password" value="0" <!-- IF not ALTT_IGNORE_PASSWORD -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>
+		</dl>
+		<dl>
 			<dt><label for="altt_active">{L_ALTT_ACTIVE}:</label></dt>
 			<dd><input type="radio" class="radio" name="altt_active" value="1" <!-- IF ALTT_ACTIVE -->checked="checked"<!-- ENDIF -->/> {L_YES} &nbsp; 
 				<input type="radio" class="radio" name="altt_active" value="0" <!-- IF not ALTT_ACTIVE -->checked="checked"<!-- ENDIF --> /> {L_NO}</dd>

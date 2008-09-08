@@ -38,6 +38,11 @@ $lang = array_merge($lang, array(
 	'ALTT_ITALIC'				=> 'Kursiv',
 	'ALTT_ADV'					=> 'weitere:',
 
+	'ALTT_IGNORE_PASSWORD'		=> 'Passwort ignorieren',
+	'ALTT_IGNORE_PASSWORD_EXP'	=> 'Der Titel wird auch angezeigt, wenn das Forum ein Passwort hat.',
+	'ALTT_IGNORE_RIGHTS'		=> 'Berechtigungen ignorieren',
+	'ALTT_IGNORE_RIGHTS_EXP'	=> 'Der Titel wird dann immer angezeigt, auch wenn man den Beitrag nicht lesen darf.',
+
 	'ALTT_TITLE'			=> 'NV advanced last topic titles',
 
 	'CREATE_INDEX'						=> 'Index erstellen',

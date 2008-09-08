@@ -42,6 +42,8 @@ class acp_altt
 			set_config('altt_style_adv', request_var('altt_style_adv', 0));
 			set_config('altt_style_adv2', request_var('altt_style_adv2', ''));
 			set_config('altt_active', request_var('altt_active', 0));
+			set_config('altt_ignore_rights', request_var('altt_ignore_rights', 0));
+			set_config('altt_ignore_password', request_var('altt_ignore_password', 0));
 
 			trigger_error($user->lang['ALTT_CONFIG_SAVED'] . adm_back_link($this->u_action));
 		}
@@ -54,6 +56,8 @@ class acp_altt
 			'ALTT_STYLE_ITALIC'		=> $config['altt_style_italic'],
 			'ALTT_STYLE_ADV'		=> $config['altt_style_adv'],
 			'ALTT_STYLE_ADV2'		=> $config['altt_style_adv2'],
+			'ALTT_IGNORE_RIGHTS'	=> $config['altt_ignore_rights'],
+			'ALTT_IGNORE_PASSWORD'	=> $config['altt_ignore_password'],
 			'ALTT_ACTIVE'			=> $config['altt_active'],
 			'U_ACTION'				=> $this->u_action)
 		);

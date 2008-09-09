@@ -34,11 +34,7 @@
     <history>
       <entry>
         <date>2008-09-09</date>
-        <rev-version>
-          <major>1</major>
-          <minor>2</minor>
-          <revision>5</revision>
-        </rev-version>
+        <rev-version>1.2.5</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[wrong permissions]]></change>
           <change><![CDATA[Option to ignore permissions]]></change>
@@ -52,11 +48,7 @@
       </entry>
       <entry>
         <date>2008-05-08</date>
-        <rev-version>
-          <major>1</major>
-          <minor>2</minor>
-          <revision>4</revision>
-        </rev-version>
+        <rev-version>1.2.4</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[better link adjustments]]></change>
           <change><![CDATA[easy way to style]]></change>
@@ -68,11 +60,7 @@
       </entry>
       <entry>
         <date>2008-03-16</date>
-        <rev-version>
-          <major>1</major>
-          <minor>2</minor>
-          <revision>3</revision>
-        </rev-version>
+        <rev-version>1.2.3</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[fixed for mysqli]]></change>
           <change><![CDATA[consider the reading rights of the user]]></change>
@@ -88,11 +76,7 @@
       </entry>
       <entry>
         <date>2007-12-14</date>
-        <rev-version>
-          <major>1</major>
-          <minor>2</minor>
-          <revision>2</revision>
-        </rev-version>
+        <rev-version>1.2.2</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[fixed for mysql < 4.1.3]]></change>
         </changelog>
@@ -102,11 +86,7 @@
       </entry>
       <entry>
         <date>2007-12-02</date>
-        <rev-version>
-          <major>1</major>
-          <minor>2</minor>
-          <revision>1</revision>
-        </rev-version>
+        <rev-version>1.2.1</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[added index to the db for better speed on side build]]></change>
           <change><![CDATA[fixed some points to the coding guidelines]]></change>
@@ -118,11 +98,7 @@
       </entry>
       <entry>
         <date>2007-10-15</date>
-        <rev-version>
-          <major>1</major>
-          <minor>2</minor>
-          <revision>0</revision>
-        </rev-version>
+        <rev-version>1.2.0</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[minor fix in template]]></change>
           <change><![CDATA[added acp-option]]></change>
@@ -138,11 +114,7 @@
       </entry>
       <entry>
         <date>2007-10-12</date>
-        <rev-version>
-          <major>1</major>
-          <minor>1</minor>
-          <revision>0</revision>
-        </rev-version>
+        <rev-version>1.1.0</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[unreleased]]></change>
         </changelog>
@@ -152,11 +124,7 @@
       </entry>
       <entry>
         <date>2007-09-04</date>
-        <rev-version>
-          <major>1</major>
-          <minor>0</minor>
-          <revision>1</revision>
-        </rev-version>
+        <rev-version>1.0.1</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[minor fix in template]]></change>
           <change><![CDATA[fixed short version of topic title]]></change>
@@ -168,11 +136,7 @@
       </entry>
       <entry>
         <date>2007-08-04</date>
-        <rev-version>
-          <major>1</major>
-          <minor>0</minor>
-          <revision>0</revision>
-        </rev-version>
+        <rev-version>1.0.0</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[fixed the large number of sqls]]></change>
           <change><![CDATA[released]]></change>

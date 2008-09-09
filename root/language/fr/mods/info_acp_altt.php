@@ -38,6 +38,11 @@ $lang = array_merge($lang, array(
 	'ALTT_ITALIC'			=> 'Italique',
 	'ALTT_ADV'				=> 'plus:',
 
+	'ALTT_IGNORE_PASSWORD'		=> 'Ignorer le mot de passe',
+	'ALTT_IGNORE_PASSWORD_EXP'	=> 'Le titre est visible, même si le forum est protégé par mot de passe.',
+	'ALTT_IGNORE_RIGHTS'		=> 'Ignorer les droits',
+	'ALTT_IGNORE_RIGHTS_EXP'	=> 'Si vous ignorez les droits, le titre est visible, même si vous n\'êtes pas autorisé à lire le message.',
+
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
 	'CREATE_INDEX'						=> 'Create Index',

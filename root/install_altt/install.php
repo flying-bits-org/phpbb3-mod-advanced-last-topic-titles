@@ -85,6 +85,7 @@ function add_module($array)
 }
 $install = request_var('install', 0);
 $update = request_var('update', 0);
+$version = request_var('v', '0.0.0');
 
 switch ($mode)
 {

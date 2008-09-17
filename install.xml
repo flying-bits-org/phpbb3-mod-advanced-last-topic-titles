@@ -15,15 +15,15 @@
         <contributions />
       </author>
     </author-group>
-    <mod-version>1.2.5</mod-version>
+    <mod-version>1.2.6</mod-version>
     <installation>
       <level>easy</level>
       <time>240</time>
       <target-version>3.0.2</target-version>
     </installation>
     <link-group>
-      <link type="parent" lang="de" href="contrib/update_1_2_4_to_1_2_5/update.xml">Update von 1.2.4 auf 1.2.5</link>
-      <link type="parent" lang="en-gb" href="contrib/update_1_2_4_to_1_2_5/update.xml">Update from 1.2.4 to 1.2.5</link>
+      <link type="parent" lang="de" href="contrib/update_1_2_5_to_1_2_6/update.xml">Update von 1.2.5 auf 1.2.6</link>
+      <link type="parent" lang="en-gb" href="contrib/update_1_2_5_to_1_2_6/update.xml">Update from 1.2.5 to 1.2.6</link>
       <link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
       <link type="language" lang="en-gb" href="contrib/de.xml">Manual for German Language-set</link>
       <link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
@@ -32,6 +32,16 @@
       <link type="template" lang="en-gb" href="contrib/subsilver2.xml">Manual for subsilver2 Style</link>
     </link-group>
     <history>
+      <entry>
+        <date>YYYY-MM-DD</date>
+        <rev-version>1.2.6</rev-version>
+        <changelog lang="en-gb">
+          <change><![CDATA[corrected cut for html-chars]]></change>
+        </changelog>
+        <changelog lang="de">
+          <change><![CDATA[Abschneiden von HTML-Zeichen korrigiert]]></change>
+        </changelog>
+      </entry>
       <entry>
         <date>2008-09-09</date>
         <rev-version>1.2.5</rev-version>
@@ -190,7 +200,7 @@
 			if ($config['altt_active'] && (!$row['forum_password'] || $config['altt_ignore_password']) && ($auth->acl_get('f_read', $row['nv_permission_forum_id']) || $config['altt_ignore_rights']))
 			{
 				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
-				$altt_link_name_short	= (utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name);
+				$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name);
 				$altt_style_bold		= $config['altt_style_bold'];
 				$altt_style_italic		= $config['altt_style_italic'];
 				$altt_style_adv			= $config['altt_style_adv'];

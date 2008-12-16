@@ -15,11 +15,11 @@
         <contributions />
       </author>
     </author-group>
-    <mod-version>1.2.5</mod-version>
+    <mod-version>1.2.6</mod-version>
     <installation>
       <level>easy</level>
       <time>240</time>
-      <target-version>3.0.2</target-version>
+      <target-version>3.0.4</target-version>
     </installation>
     <link-group>
       <link type="parent" lang="en-gb" href="../install.xml">Install</link>

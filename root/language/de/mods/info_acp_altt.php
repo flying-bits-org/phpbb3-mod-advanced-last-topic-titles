@@ -43,7 +43,7 @@ $lang = array_merge($lang, array(
 	'ALTT_IGNORE_RIGHTS'		=> 'Berechtigungen ignorieren',
 	'ALTT_IGNORE_RIGHTS_EXP'	=> 'Der Titel wird dann immer angezeigt, auch wenn man den Beitrag nicht lesen darf.',
 
-	'ALTT_TITLE'			=> 'NV advanced last topic titles',
+	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
 	'CREATE_INDEX'						=> 'Index erstellen',
 	'CREATE_INDEX_EXP'					=> 'Die Erstellung des Index erhöht die Geschwindigkeit der MOD. Manche Benutzer haben aber nicht die nötigen Rechte um einen Index zuerstellen. Sie erhalten eine Fehlermeldung bei der Installation. Sollte dies der Fall sein, einfach hier auf "Nein" stellen.',
@@ -55,7 +55,6 @@ $lang = array_merge($lang, array(
 	'INSTALLER_INSTALL'					=> 'Installieren',
 	'INSTALLER_INSTALL_MENU'			=> 'Installation',
 	'INSTALLER_INSTALL_SUCCESSFUL'		=> 'Installation der MOD v%s war erfolgreich.',
-	'INSTALLER_INSTALL_UNSUCCESSFUL'	=> 'Installation der MOD v%s war <strong>nicht</strong> erfolgreich.',
 	'INSTALLER_INSTALL_VERSION'			=> 'Installiere MOD v%s',
 	'INSTALLER_INSTALL_WELCOME'			=> 'Willkommen zur Installation',
 	'INSTALLER_INSTALL_WELCOME_NOTE'	=> 'Wenn du den MOD installierst, werden möglicherweise vorhandene Datenbanktabellen mit gleichem Namen gelöscht.',
@@ -66,9 +65,12 @@ $lang = array_merge($lang, array(
 	'INSTALLER_UPDATE_MENU'				=> 'Updatemenü',
 	'INSTALLER_UPDATE_NOTE'				=> 'Update MOD von v%s nach v%s',
 	'INSTALLER_UPDATE_SUCCESSFUL'		=> 'Update der MOD von v%s nach v%s war erfolgreich.',
-	'INSTALLER_UPDATE_UNSUCCESSFUL'		=> 'Update der MOD von v%s nach v%s war <strong>nicht</strong> erfolgreich.',
 	'INSTALLER_UPDATE_VERSION'			=> 'Update MOD von v',
 	'INSTALLER_UPDATE_WELCOME'			=> 'Willkommen zum Update',
+
+	'INSTALL_MODIFICATION'				=> 'NV advanced last topic titles v%s',
+	'LOG_INSTALL_MODIFICATION'			=> 'Modification "NV advanced last topic titles" v%s installiert',
+	'LOG_UPDATE_MODIFICATION'			=> 'Modification "NV advanced last topic titles" zu v%s aktualisiert',
 
 	'WARNING'							=> 'Warnung',
 ));

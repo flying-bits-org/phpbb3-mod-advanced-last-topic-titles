@@ -19,7 +19,7 @@
     <installation>
       <level>easy</level>
       <time>240</time>
-      <target-version>3.0.2</target-version>
+      <target-version>3.0.4</target-version>
     </installation>
     <link-group>
       <link type="parent" lang="de" href="contrib/update_1_2_5_to_1_2_6/update.xml">Update von 1.2.5 auf 1.2.6</link>
@@ -33,7 +33,7 @@
     </link-group>
     <history>
       <entry>
-        <date>YYYY-MM-DD</date>
+        <date>2008-12-17</date>
         <rev-version>1.2.6</rev-version>
         <changelog lang="en-gb">
           <change><![CDATA[corrected cut for html-chars]]></change>
@@ -166,7 +166,8 @@
       <file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
       <file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
       <file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
-      <file from="root/install_altt/*.*" to="install_altt/*.*" />
+      <file from="root/install/*.*" to="install/*.*" />
+      <file from="root/install/style/*.*" to="install/style/*.*" />
     </copy>
     <open src="includes/functions_display.php">
       <edit>

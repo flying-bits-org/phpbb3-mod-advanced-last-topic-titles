@@ -55,7 +55,6 @@ $lang = array_merge($lang, array(
 	'INSTALLER_INSTALL'					=> 'Installation',
 	'INSTALLER_INSTALL_MENU'			=> 'Menu d\'installation',
 	'INSTALLER_INSTALL_SUCCESSFUL'		=> 'L\'installation du MOD v%s a réussi.',
-	'INSTALLER_INSTALL_UNSUCCESSFUL'	=> 'L\'installation du MOD v%s a <strong>échoué</strong>.',
 	'INSTALLER_INSTALL_VERSION'			=> 'Installation du MOD v%s',
 	'INSTALLER_INSTALL_WELCOME'			=> 'Bienvenue dans le menu d\'installation',
 	'INSTALLER_INSTALL_WELCOME_NOTE'	=> 'Quand vous choisissez d\'installer ce  MOD, aucune donnée des précédentes versions ne sera oubliée.',
@@ -66,9 +65,12 @@ $lang = array_merge($lang, array(
 	'INSTALLER_UPDATE_MENU'				=> 'Menu de la mise à jour',
 	'INSTALLER_UPDATE_NOTE'				=> 'Mise à jour du MOD de la v%s vers la v%s',
 	'INSTALLER_UPDATE_SUCCESSFUL'		=> 'La mise à jour du MOD de la v%s vers la v%s a réussi.',
-	'INSTALLER_UPDATE_UNSUCCESSFUL'		=> 'La mise à jour du MOD de la v%s vers la v%s a <strong>échoué</strong>.',
 	'INSTALLER_UPDATE_VERSION'			=> 'Mise à jour du MOD v',
 	'INSTALLER_UPDATE_WELCOME'			=> 'Bienvenue dans le menu de mise à jour',
+
+	'INSTALL_MODIFICATION'				=> 'NV advanced last topic titles v%s',
+	'LOG_INSTALL_MODIFICATION'			=> 'Modification "NV advanced last topic titles" v%s installed',
+	'LOG_UPDATE_MODIFICATION'			=> 'Modification "NV advanced last topic titles" updated to v%s',
 
 	'WARNING'							=> 'Attention',
 ));

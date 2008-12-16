@@ -69,8 +69,8 @@ $lang = array_merge($lang, array(
 	'INSTALLER_UPDATE_WELCOME'			=> 'Bienvenue dans le menu de mise à jour',
 
 	'INSTALL_MODIFICATION'				=> 'NV advanced last topic titles v%s',
-	'LOG_INSTALL_MODIFICATION'			=> 'Modification "NV advanced last topic titles" v%s installed',
-	'LOG_UPDATE_MODIFICATION'			=> 'Modification "NV advanced last topic titles" updated to v%s',
+	'LOG_INSTALL_MODIFICATION'			=> 'Le Mod "NV advanced last topic titles" v%s est installé',
+	'LOG_UPDATE_MODIFICATION'			=> 'Le Mod "NV advanced last topic titles" a été mis à jour en v%s',
 
 	'WARNING'							=> 'Attention',
 ));

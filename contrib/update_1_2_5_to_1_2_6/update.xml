@@ -30,11 +30,8 @@
   <action-group>
     <open src="includes/functions_display.php">
       <edit>
-        <find><![CDATA[				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
-				$altt_link_name_short	= (utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name);]]></find>
-        <action type="replace-with"><![CDATA[				$altt_link_name			= html_entity_decode(($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject']);
-				$altt_link_name_short	= htmlentities((utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name));
-				$altt_link_name			= htmlentities($altt_link_name);]]></action>
+        <find><![CDATA[$altt_link_name_short	= (utf8_strlen($altt_link_name) > $config['altt_char_limit'] + 3 )? (utf8_substr($altt_link_name, 0, $config['altt_char_limit']) . '...') : ($altt_link_name);]]></find>
+        <action type="replace-with"><![CDATA[$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name);]]></action>
       </edit>
     </open>
     <diy-instructions lang="en-gb">browse to install/index.php and run the installer</diy-instructions>

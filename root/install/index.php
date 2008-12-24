@@ -31,7 +31,7 @@ $user->add_lang('mods/info_acp_altt');
 $template->set_custom_template('style', 'install_altt');
 $template->assign_var('T_TEMPLATE_PATH', 'style');
 
-$new_mod_version = '1.2.6';
+$new_mod_version = '1.2.7';
 $page_title = sprintf($user->lang['INSTALL_MODIFICATION'], $new_mod_version);
 
 function install_back_link($u_action)
@@ -70,10 +70,7 @@ switch ($mode)
 			$index = request_var('index', 0);
 			if ($index == 1)
 			{
-				include($phpbb_root_path . 'includes/db/db_tools.' . $phpEx);
-				$phpbb_db_tools = new phpbb_db_tools($db);
-
-				$phpbb_db_tools->sql_create_index(TOPICS_TABLE, 'altt', 'topic_last_post_id');
+				$phpbb_db_tools->sql_create_index(TOPICS_TABLE, 'altt', array('topic_last_post_id'));
 			}
 
 			set_config('altt_char_limit', 64);
@@ -112,7 +109,7 @@ switch ($mode)
 			'L_WELCOME'			=> $user->lang['INSTALLER_INSTALL_WELCOME'],
 			'L_WELCOME_NOTE'	=> $user->lang['INSTALLER_INSTALL_WELCOME_NOTE'],
 			'L_LEGEND'			=> $user->lang['INSTALLER_INSTALL'],
-			'L_LABLE'			=> 'v' . $new_mod_version,
+			'L_LABLE'			=> sprintf($user->lang['INSTALLER_INSTALL_VERSION'], $new_mod_version),
 			'S_ACTION'			=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=install'),
 		));
 	break;
@@ -140,7 +137,7 @@ switch ($mode)
 						include($phpbb_root_path . 'includes/db/db_tools.' . $phpEx);
 						$phpbb_db_tools = new phpbb_db_tools($db);
 
-						$phpbb_db_tools->sql_create_index(TOPICS_TABLE, 'altt', 'topic_last_post_id');
+						$phpbb_db_tools->sql_create_index(TOPICS_TABLE, 'altt', array('topic_last_post_id'));
 					}
 				case '1.2.1':
 				case '1.2.2':

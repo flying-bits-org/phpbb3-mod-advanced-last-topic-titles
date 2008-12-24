@@ -207,6 +207,7 @@ $template->assign_vars(array(
 	'U_UPDATE_1_2_3'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.3'),
 	'U_UPDATE_1_2_4'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.4'),
 	'U_UPDATE_1_2_5'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.5'),
+	'U_UPDATE_1_2_6'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.6'),
 ));
 
 page_header($page_title);

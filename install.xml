@@ -15,7 +15,7 @@
         <contributions />
       </author>
     </author-group>
-    <mod-version>1.2.6</mod-version>
+    <mod-version>1.2.7</mod-version>
     <installation>
       <level>easy</level>
       <time>240</time>
@@ -32,6 +32,13 @@
       <link type="template" lang="en-gb" href="contrib/subsilver2.xml">Manual for subsilver2 Style</link>
     </link-group>
     <history>
+      <entry>
+        <date>2008-12-24</date>
+        <rev-version>1.2.7</rev-version>
+        <changelog lang="en-gb">
+          <change><![CDATA[missed to add htmlspecialchars after decode]]></change>
+        </changelog>
+      </entry>
       <entry>
         <date>2008-12-17</date>
         <rev-version>1.2.6</rev-version>
@@ -201,7 +208,7 @@
 			if ($config['altt_active'] && (!$row['forum_password'] || $config['altt_ignore_password']) && ($auth->acl_get('f_read', $row['nv_permission_forum_id']) || $config['altt_ignore_rights']))
 			{
 				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
-				$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name);
+				$altt_link_name_short	= htmlspecialchars((utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name));
 				$altt_style_bold		= $config['altt_style_bold'];
 				$altt_style_italic		= $config['altt_style_italic'];
 				$altt_style_adv			= $config['altt_style_adv'];

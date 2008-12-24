@@ -14,13 +14,6 @@
         <homepage>http://www.flying-bits.org/</homepage>
         <contributions />
       </author>
-      <author>
-        <realname>French-Translator: Frédéric Mangenot</realname>
-        <email>informaide@free.fr</email>
-        <username>freud47</username>
-        <homepage>http://www.informaide.info</homepage>
-        <contributions />
-      </author>
     </author-group>
     <mod-version>1.2.7</mod-version>
     <installation>
@@ -29,14 +22,19 @@
       <target-version>3.0.4</target-version>
     </installation>
     <link-group>
-      <link type="parent" lang="en-gb" href="../install.xml">Install</link>
-      <link type="parent" lang="de" href="../install.xml">Installations-Anleitung</link>
+      <link type="parent" lang="de" href="../../install.xml">Installations-Anleitung</link>
+      <link type="parent" lang="en-gb" href="../../install.xml">Install</link>
     </link-group>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
   </header>
   <action-group>
-    <copy>
-      <file from="root/language/fr/mods/info_acp_altt.php" to="language/fr/mods/info_acp_altt.php" />
-    </copy>
+    <open src="includes/functions_display.php">
+      <edit>
+        <find><![CDATA[$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name);]]></find>
+        <action type="replace-with"><![CDATA[$altt_link_name_short	= htmlspecialchars((utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name));]]></action>
+      </edit>
+    </open>
+    <diy-instructions lang="en-gb">browse to install/index.php and run the installer</diy-instructions>
+    <diy-instructions lang="de">browse to install/index.php and run the installer</diy-instructions>
   </action-group>
 </mod>

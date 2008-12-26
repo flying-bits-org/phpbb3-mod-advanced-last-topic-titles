@@ -15,7 +15,7 @@
         <contributions />
       </author>
     </author-group>
-    <mod-version>1.2.7</mod-version>
+    <mod-version>1.2.8</mod-version>
     <installation>
       <level>easy</level>
       <time>240</time>
@@ -31,7 +31,7 @@
     <open src="includes/functions_display.php">
       <edit>
         <find><![CDATA[$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name);]]></find>
-        <action type="replace-with"><![CDATA[$altt_link_name_short	= htmlspecialchars((utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? (utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...') : ($altt_link_name));]]></action>
+        <action type="replace-with"><![CDATA[$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? htmlspecialchars((utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...')) : ($altt_link_name);]]></action>
       </edit>
     </open>
     <diy-instructions lang="en-gb">browse to install/index.php and run the installer</diy-instructions>

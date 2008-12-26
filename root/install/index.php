@@ -31,7 +31,7 @@ $user->add_lang('mods/info_acp_altt');
 $template->set_custom_template('style', 'install_altt');
 $template->assign_var('T_TEMPLATE_PATH', 'style');
 
-$new_mod_version = '1.2.7';
+$new_mod_version = '1.2.8';
 $page_title = sprintf($user->lang['INSTALL_MODIFICATION'], $new_mod_version);
 
 function install_back_link($u_action)
@@ -124,6 +124,8 @@ switch ($mode)
 			case '1.2.3':
 			case '1.2.4':
 			case '1.2.5':
+			case '1.2.6':
+			case '1.2.7':
 			break;
 		}
 		if ($confirm)
@@ -152,6 +154,8 @@ switch ($mode)
 					set_config('altt_ignore_rights', 0);
 					set_config('altt_ignore_password', 0);
 				case '1.2.5':
+				case '1.2.6':
+				case '1.2.7':
 
 				break;
 			}
@@ -208,6 +212,7 @@ $template->assign_vars(array(
 	'U_UPDATE_1_2_4'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.4'),
 	'U_UPDATE_1_2_5'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.5'),
 	'U_UPDATE_1_2_6'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.6'),
+	'U_UPDATE_1_2_7'	=> append_sid("{$phpbb_root_path}install/index.$phpEx", 'mode=update&amp;version=1.2.7'),
 ));
 
 page_header($page_title);

@@ -14,13 +14,6 @@
         <homepage>http://www.flying-bits.org/</homepage>
         <contributions />
       </author>
-      <author>
-        <realname>French-Translator: Frédéric Mangenot</realname>
-        <email>informaide@free.fr</email>
-        <username>freud47</username>
-        <homepage>http://www.informaide.info</homepage>
-        <contributions />
-      </author>
     </author-group>
     <mod-version>1.2.8</mod-version>
     <installation>
@@ -28,15 +21,13 @@
       <time>240</time>
       <target-version>3.0.4</target-version>
     </installation>
-    <link-group>
-      <link type="parent" lang="en-gb" href="../install.xml">Install</link>
-      <link type="parent" lang="de" href="../install.xml">Installations-Anleitung</link>
-    </link-group>
     <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
   </header>
   <action-group>
     <copy>
-      <file from="root/language/fr/mods/info_acp_altt.php" to="language/fr/mods/info_acp_altt.php" />
+      <file from="root/language/de/mods/info_acp_altt.php" to="language/de/mods/info_acp_altt.php" />
     </copy>
+    <diy-instructions lang="en-gb">browse to install_altt/install.php and run the installer</diy-instructions>
+    <diy-instructions lang="de">browse to install_altt/install.php and run the installer</diy-instructions>
   </action-group>
 </mod>

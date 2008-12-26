@@ -25,7 +25,7 @@ class nv_altt_version
 			'author'	=> 'nickvergessen',
 			'title'		=> 'NV Advanced Last Topic Titles',
 			'tag'		=> 'nv_altt',
-			'version'	=> '1.2.6',
+			'version'	=> '1.2.8',
 			'file'		=> array('www.flying-bits.org', 'updatecheck', 'nv_altt.xml'),
 		);
 	}

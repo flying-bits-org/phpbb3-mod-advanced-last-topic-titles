@@ -46,7 +46,7 @@ function add_module($array)
 	$failed = $modules->update_module_data($array, true);
 	if ($failed == 'PARENT_NO_EXIST')
 	{
-		$user->add_lang('acp\modules');
+		$user->add_lang('acp/modules');
 		trigger_error('PARENT_NO_EXIST');
 	}
 }

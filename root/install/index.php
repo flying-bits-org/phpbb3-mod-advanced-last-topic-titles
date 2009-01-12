@@ -62,10 +62,6 @@ switch ($mode)
 			// Use phpBB-Stuff
 			include($phpbb_root_path . 'includes/db/db_tools.' . $phpEx);
 			$phpbb_db_tools = new phpbb_db_tools($db);
-			if (!$phpbb_db_tools->sql_column_exists(FORUMS_TABLE, 'forum_recent_topics'))
-			{
-				$phpbb_db_tools->sql_column_add(FORUMS_TABLE, 'forum_recent_topics', array('TINT:1', 1));
-			}
 
 			$index = request_var('index', 0);
 			if ($index == 1)

@@ -264,7 +264,7 @@
         </inline-edit>
       </edit>
     </open>
-    <diy-instructions lang="en-gb">browse to install_altt/install.php and run the installer</diy-instructions>
-    <diy-instructions lang="de">browse to install_altt/install.php and run the installer</diy-instructions>
+    <diy-instructions lang="en-gb">browse to install/install.php and run the installer</diy-instructions>
+    <diy-instructions lang="de">browse to install/install.php and run the installer</diy-instructions>
   </action-group>
 </mod>

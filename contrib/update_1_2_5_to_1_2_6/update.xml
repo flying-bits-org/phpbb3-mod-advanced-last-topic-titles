@@ -39,7 +39,7 @@
 			</edit>
 		</open>
 
-		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und führe den Installer aus
+		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und fÃ¼hre den Installer aus
 
 Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 

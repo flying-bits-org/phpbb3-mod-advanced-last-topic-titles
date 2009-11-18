@@ -1,13 +1,13 @@
 <?php
-
 /**
 *
-* @package - NV advanced last topic titles
+* @package - NV Advanced Last Topic Titles
 * @version $Id$
-* @copyright (c) nickvergessen: http://www.flying-bits.org/ - nickvergessen@gmx.de
+* @copyright (c) 2007 nickvergessen nickvergessen@gmx.de http://www.flying-bits.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
+
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -45,34 +45,13 @@ $lang = array_merge($lang, array(
 
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
-	'CREATE_INDEX'						=> 'Index erstellen',
-	'CREATE_INDEX_EXP'					=> 'Die Erstellung des Index erhöht die Geschwindigkeit der MOD. Manche Benutzer haben aber nicht die nötigen Rechte um einen Index zuerstellen. Sie erhalten eine Fehlermeldung bei der Installation. Sollte dies der Fall sein, einfach hier auf "Nein" stellen.',
-
-	'INSTALLER_INTRO'					=> 'Intro',
-	'INSTALLER_INTRO_WELCOME'			=> 'Willkommen zur MOD-Installation',
-	'INSTALLER_INTRO_WELCOME_NOTE'		=> 'Bitte wähle aus, was du tun möchtest.',
-
-	'INSTALLER_INSTALL'					=> 'Installieren',
-	'INSTALLER_INSTALL_MENU'			=> 'Installation',
-	'INSTALLER_INSTALL_SUCCESSFUL'		=> 'Installation der MOD v%s war erfolgreich.',
-	'INSTALLER_INSTALL_VERSION'			=> 'Installiere MOD v%s',
-	'INSTALLER_INSTALL_WELCOME'			=> 'Willkommen zur Installation',
-	'INSTALLER_INSTALL_WELCOME_NOTE'	=> 'Wenn du den MOD installierst, werden möglicherweise vorhandene Datenbanktabellen mit gleichem Namen gelöscht.',
-
-	'INSTALLER_NEEDS_FOUNDER'			=> 'Du musst als Gründer eingeloggt sein.',
-
-	'INSTALLER_UPDATE'					=> 'Update',
-	'INSTALLER_UPDATE_MENU'				=> 'Updatemenü',
-	'INSTALLER_UPDATE_NOTE'				=> 'Update MOD von v%s nach v%s',
-	'INSTALLER_UPDATE_SUCCESSFUL'		=> 'Update der MOD von v%s nach v%s war erfolgreich.',
-	'INSTALLER_UPDATE_VERSION'			=> 'Update MOD von v',
-	'INSTALLER_UPDATE_WELCOME'			=> 'Willkommen zum Update',
-
-	'INSTALL_MODIFICATION'				=> 'NV advanced last topic titles v%s',
-	'LOG_INSTALL_MODIFICATION'			=> 'Modification "NV advanced last topic titles" v%s installiert',
-	'LOG_UPDATE_MODIFICATION'			=> 'Modification "NV advanced last topic titles" zu v%s aktualisiert',
-
-	'WARNING'							=> 'Warnung',
+	'NV_ALTT_MOD'						=> '"NV advanced last topic titles" MOD',
+	'INSTALL_NV_ALTT_MOD'				=> '"NV advanced last topic titles" MOD installieren',
+	'INSTALL_NV_ALTT_MOD_CONFIRM'		=> 'Bist du dir sicher, dass du die "NV advanced last topic titles" MOD installieren möchtest?',
+	'UPDATE_NV_ALTT_MOD'				=> '"NV advanced last topic titles" MOD aktualisieren',
+	'UPDATE_NV_ALTT_MOD_CONFIRM'		=> 'Bist du dir sicher, dass du die "NV advanced last topic titles" MOD aktualisieren möchtest?',
+	'UNINSTALL_NV_ALTT_MOD'				=> '"NV advanced last topic titles" MOD deinstallieren',
+	'UNINSTALL_NV_ALTT_MOD_CONFIRM'		=> 'Bist du dir sicher, dass du die "NV advanced last topic titles" MOD deinstallieren möchtest?',
 ));
 
 ?>

@@ -1,10 +1,10 @@
 <?php
 /**
 *
-* @package acp
+* @package - NV Advanced Last Topic Titles
 * @version $Id$
-* @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @copyright (c) 2007 nickvergessen nickvergessen@gmx.de http://www.flying-bits.org
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
 
@@ -25,7 +25,7 @@ class nv_altt_version
 			'author'	=> 'nickvergessen',
 			'title'		=> 'NV Advanced Last Topic Titles',
 			'tag'		=> 'nv_altt',
-			'version'	=> '1.2.8',
+			'version'	=> '1.2.9',
 			'file'		=> array('www.flying-bits.org', 'updatecheck', 'nv_altt.xml'),
 		);
 	}

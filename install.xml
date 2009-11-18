@@ -1,217 +1,177 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
-<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.1.xsd">
-  <header>
-    <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-    <title lang="en-gb">NV advanced last topic titles</title>
-    <title lang="de">NV advanced last topic titles</title>
-    <author-group>
-      <author>
-        <realname>Joas Schilling</realname>
-        <email>nickvergessen@gmx.de</email>
-        <username>nickvergessen</username>
-        <homepage>http://www.flying-bits.org/</homepage>
-        <contributions />
-      </author>
-    </author-group>
-    <mod-version>1.2.8</mod-version>
-    <installation>
-      <level>easy</level>
-      <time>240</time>
-      <target-version>3.0.4</target-version>
-    </installation>
-    <link-group>
-      <link type="parent" lang="de" href="contrib/update_1_2_7_to_1_2_8/update.xml">Update von 1.2.7 auf 1.2.8</link>
-      <link type="parent" lang="en-gb" href="contrib/update_1_2_7_to_1_2_8/update.xml">Update from 1.2.7 to 1.2.8</link>
-      <link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
-      <link type="language" lang="en-gb" href="contrib/de.xml">Manual for German Language-set</link>
-      <link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
-      <link type="language" lang="en-gb" href="contrib/fr.xml">Manual for French Language-set</link>
-      <link type="template" lang="de" href="contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
-      <link type="template" lang="en-gb" href="contrib/subsilver2.xml">Manual for subsilver2 Style</link>
-    </link-group>
-    <history>
-      <entry>
-        <date>2008-12-26</date>
-        <rev-version>1.2.8</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[too much htmlspecialchars]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2008-12-24</date>
-        <rev-version>1.2.7</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[missed to add htmlspecialchars after decode]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2008-12-17</date>
-        <rev-version>1.2.6</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[corrected cut for html-chars]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[Abschneiden von HTML-Zeichen korrigiert]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2008-09-09</date>
-        <rev-version>1.2.5</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[wrong permissions]]></change>
-          <change><![CDATA[Option to ignore permissions]]></change>
-          <change><![CDATA[Option to ignore forum-password]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[falsche Berechtigungen]]></change>
-          <change><![CDATA[Option zum ignorieren der Berechtigungen]]></change>
-          <change><![CDATA[Option zum ignorieren des Forum-Passwortes]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2008-05-08</date>
-        <rev-version>1.2.4</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[better link adjustments]]></change>
-          <change><![CDATA[easy way to style]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[Bessere Linkeinstellungen]]></change>
-          <change><![CDATA[einfacherer Weg um den Link im Style anzupassen]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2008-03-16</date>
-        <rev-version>1.2.3</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[fixed for mysqli]]></change>
-          <change><![CDATA[consider the reading rights of the user]]></change>
-          <change><![CDATA[made the link "bold"]]></change>
-          <change><![CDATA[fixed dead links for shadow topics]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[Fehler beseitigt für mysqli]]></change>
-          <change><![CDATA[berücksichtige die Leseberechtigungen der Besucher]]></change>
-          <change><![CDATA[Link "fett" gemacht]]></change>
-          <change><![CDATA[tote Links für Shadow-Themen repariert]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-12-14</date>
-        <rev-version>1.2.2</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[fixed for mysql < 4.1.3]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[Fehler beseitigt für mysql < 4.1.3]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-12-02</date>
-        <rev-version>1.2.1</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[added index to the db for better speed on side build]]></change>
-          <change><![CDATA[fixed some points to the coding guidelines]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[Index in der Datenbank hinzugefügt, für mehr Geschwindigkeit beim Seitenaufbau.]]></change>
-          <change><![CDATA[Kleinigkeiten in Bezug zu den Coding Guidelines]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-10-15</date>
-        <rev-version>1.2.0</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[minor fix in template]]></change>
-          <change><![CDATA[added acp-option]]></change>
-          <change><![CDATA[no display on forum password]]></change>
-          <change><![CDATA[renamed the mod]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[kleiner fix im Template]]></change>
-          <change><![CDATA[ACP-Einstellung hinzugefügt]]></change>
-          <change><![CDATA[keine Anzeige wenn ein Forum Passwort geschützt ist]]></change>
-          <change><![CDATA[Modifikation umbenannt]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-10-12</date>
-        <rev-version>1.1.0</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[unreleased]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[unveröffentlicht]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-09-04</date>
-        <rev-version>1.0.1</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[minor fix in template]]></change>
-          <change><![CDATA[fixed short version of topic title]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[kleiner fix im Template]]></change>
-          <change><![CDATA[Anzeige des gekürzten Themen-Titels gefixed]]></change>
-        </changelog>
-      </entry>
-      <entry>
-        <date>2007-08-04</date>
-        <rev-version>1.0.0</rev-version>
-        <changelog lang="en-gb">
-          <change><![CDATA[fixed the large number of sqls]]></change>
-          <change><![CDATA[released]]></change>
-        </changelog>
-        <changelog lang="de">
-          <change><![CDATA[Problem mit den vielen SQL-Abfragen gelöst]]></change>
-          <change><![CDATA[released]]></change>
-        </changelog>
-      </entry>
-    </history>
-    <meta name="generator" content="Phpbb.ModTeam.Tools (c#)" />
-  </header>
-  <action-group>
-    <copy>
-      <file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
-      <file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
-      <file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
-      <file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
-      <file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
-      <file from="root/install/*.*" to="install/*.*" />
-      <file from="root/install/style/*.*" to="install/style/*.*" />
-    </copy>
-    <open src="includes/functions_display.php">
-      <edit>
-        <find><![CDATA[		$sql_array['SELECT'] .= ', fa.user_id';
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.3.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+
+		<title lang="en">NV advanced last topic titles</title>
+		<title lang="de">NV advanced last topic titles</title>
+
+		<author-group>
+			<author>
+				<realname>Joas Schilling</realname>
+				<email>nickvergessen@gmx.de</email>
+				<username>nickvergessen</username>
+				<homepage>http://www.flying-bits.org/</homepage>
+			</author>
+		</author-group>
+
+		<mod-version>1.2.9</mod-version>
+
+		<installation>
+			<level>easy</level>
+			<time>240</time>
+			<target-version>3.0.6</target-version>
+		</installation>
+
+		<link-group>
+			<link type="parent" lang="de" href="contrib/update_1_2_7_to_1_2_8/update.xml">Update von 1.2.7 auf 1.2.8</link>
+			<link type="parent" lang="en" href="contrib/update_1_2_7_to_1_2_8/update.xml">Update from 1.2.7 to 1.2.8</link>
+			<link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
+			<link type="language" lang="en" href="contrib/de.xml">Manual for German Language-set</link>
+			<link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
+			<link type="language" lang="en" href="contrib/fr.xml">Manual for French Language-set</link>
+			<link type="template" lang="de" href="contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
+			<link type="template" lang="en" href="contrib/subsilver2.xml">Manual for subsilver2 Style</link>
+		</link-group>
+
+		<history>
+			<entry>
+				<date>2009-11-19</date>
+				<rev-version>1.2.9</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Update installer to UMIL]]></change>
+					<change><![CDATA[Update search-code to work with 3.0.6]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2008-12-26</date>
+				<rev-version>1.2.8</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[too much htmlspecialchars]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2008-12-24</date>
+				<rev-version>1.2.7</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[missed to add htmlspecialchars after decode]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2008-12-17</date>
+				<rev-version>1.2.6</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[corrected cut for html-chars]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2008-09-09</date>
+				<rev-version>1.2.5</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[wrong permissions]]></change>
+					<change><![CDATA[Option to ignore permissions]]></change>
+					<change><![CDATA[Option to ignore forum-password]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2008-05-08</date>
+				<rev-version>1.2.4</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[better link adjustments]]></change>
+					<change><![CDATA[easy way to style]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2008-03-16</date>
+				<rev-version>1.2.3</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[fixed for mysqli]]></change>
+					<change><![CDATA[consider the reading rights of the user]]></change>
+					<change><![CDATA[made the link "bold"]]></change>
+					<change><![CDATA[fixed dead links for shadow topics]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2007-12-14</date>
+				<rev-version>1.2.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[fixed for mysql < 4.1.3]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2007-12-02</date>
+				<rev-version>1.2.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[added index to the db for better speed on side build]]></change>
+					<change><![CDATA[fixed some points to the coding guidelines]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2007-10-15</date>
+				<rev-version>1.2.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[minor fix in template]]></change>
+					<change><![CDATA[added acp-option]]></change>
+					<change><![CDATA[no display on forum password]]></change>
+					<change><![CDATA[renamed the mod]]></change>
+				</changelog>
+			</entry>
+		</history>
+	</header>
+
+	<action-group>
+		<copy>
+			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
+			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
+			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
+			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
+			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
+			<file from="root/install/index.php" to="install/index.php" />
+			<file from="root/umil/*.*" to="umil/*.*" />
+		</copy>
+
+		<open src="includes/functions_display.php">
+			<edit>
+				<find><![CDATA[		$sql_array['SELECT'] .= ', fa.user_id';
 	}]]></find>
-        <action type="after-add"><![CDATA[	$sql_array['LEFT_JOIN'][] = array(//for NV ALTT
+				<action type="after-add"><![CDATA[	$sql_array['LEFT_JOIN'][] = array(//for NV ALTT
 		'FROM'	=> array(TOPICS_TABLE => 't'),
 		'ON'	=> "f.forum_last_post_id = t.topic_last_post_id AND t.topic_moved_id = 0"
 	);
 	$sql_array['SELECT'] .= ', t.topic_title, t.topic_id, t.topic_last_post_id';]]></action>
-      </edit>
-      <edit>
-        <find><![CDATA[	$branch_root_id = $root_data['forum_id'];
-	while ($row = $db->sql_fetchrow($result))
+			</edit>
+
+			<edit>
+				<find><![CDATA[	while ($row = $db->sql_fetchrow($result))
 	{
 		$forum_id = $row['forum_id'];]]></find>
-        <action type="after-add"><![CDATA[		//for NV ALTT
+				<action type="after-add"><![CDATA[		//for NV ALTT
 		$row['nv_permission_forum_id'] = $row['forum_id'];]]></action>
-      </edit>
-      <edit>
-        <find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
-        <action type="after-add"><![CDATA[				//for NV ALTT
+			</edit>
+
+			<edit>
+				<find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
+				<action type="after-add"><![CDATA[				//for NV ALTT
 				$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
 				$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
 				$forum_rows[$parent_id]['nv_permission_forum_id'] = $row['forum_id'];
 				$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];]]></action>
-      </edit>
-      <edit>
-        <find><![CDATA[			$last_post_subject = $row['forum_last_post_subject'];]]></find>
-        <action type="after-add"><![CDATA[			//for NV ALTT
+			</edit>
+
+			<edit>
+				<find><![CDATA[			$last_post_subject = $row['forum_last_post_subject'];]]></find>
+				<action type="after-add"><![CDATA[			//for NV ALTT
 			if ($config['altt_active'] && (!$row['forum_password'] || $config['altt_ignore_password']) && ($auth->acl_get('f_read', $row['nv_permission_forum_id']) || $config['altt_ignore_rights']))
 			{
 				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
@@ -237,15 +197,17 @@
 			{
 				$altt_link_name_short = $altt_link_name = $altt_style_bold = $altt_style_italic = $altt_style_adv = $altt_style_adv2 = $altt_link_url = '';
 			}]]></action>
-      </edit>
-      <edit>
-        <find><![CDATA[$last_post_subject = $last_post_time = $last_post_url = '';]]></find>
-        <action type="after-add"><![CDATA[			//for NV ALTT
+			</edit>
+
+			<edit>
+				<find><![CDATA[$last_post_subject = $last_post_time = $last_post_url = '';]]></find>
+				<action type="after-add"><![CDATA[			//for NV ALTT
 			$altt_link_name_short = $altt_link_name = $altt_style_bold = $altt_style_italic = $altt_style_adv = $altt_style_adv2 = $altt_link_url = '';]]></action>
-      </edit>
-      <edit>
-        <find><![CDATA[=> censor_text($last_post_subject),]]></find>
-        <action type="after-add"><![CDATA[			//for NV ALTT
+			</edit>
+
+			<edit>
+				<find><![CDATA[=> censor_text($last_post_subject),]]></find>
+				<action type="after-add"><![CDATA[			//for NV ALTT
 			'ALTT_LINK_NAME_SHORT'		=> censor_text($altt_link_name_short),
 			'ALTT_LINK_NAME'			=> censor_text($altt_link_name),
 			'ALTT_STYLE_BOLD'			=> $altt_style_bold,
@@ -253,18 +215,30 @@
 			'ALTT_STYLE_ADV'			=> $altt_style_adv,
 			'ALTT_STYLE_ADV2'			=> $altt_style_adv2,
 			'U_ALTT_LINK'				=> $altt_link_url,]]></action>
-      </edit>
-    </open>
-    <open src="styles/prosilver/template/forumlist_body.html">
-      <edit>
-        <find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn> {L_POST_BY_AUTHOR} {forumrow.LAST_POSTER_FULL}]]></find>
-        <inline-edit>
-          <inline-find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></inline-find>
-          <inline-action type="after-add"><![CDATA[ <!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><br /><!-- ENDIF -->]]></inline-action>
-        </inline-edit>
-      </edit>
-    </open>
-    <diy-instructions lang="en-gb">browse to install/install.php and run the installer</diy-instructions>
-    <diy-instructions lang="de">browse to install/install.php and run the installer</diy-instructions>
-  </action-group>
+			</edit>
+		</open>
+
+		<open src="styles/prosilver/template/forumlist_body.html">
+			<edit>
+				<find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn> {L_POST_BY_AUTHOR} {forumrow.LAST_POSTER_FULL}]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></inline-find>
+					<inline-action type="after-add"><![CDATA[ <!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><br /><!-- ENDIF -->]]></inline-action>
+				</inline-edit>
+			</edit>
+		</open>
+
+		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und führe den Installer aus
+
+Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
+
+Aktualisiere deine Styles:
+		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"]]></diy-instructions>
+		<diy-instructions lang="en"><![CDATA[Browse to install/index.php and run the installer
+
+Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
+
+Refresh your Styles:
+		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"]]></diy-instructions>
+	</action-group>
 </mod>

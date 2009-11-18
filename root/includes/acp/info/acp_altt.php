@@ -1,10 +1,9 @@
 <?php
-
 /**
 *
-* @package - NV advanced last topic titles
+* @package - NV Advanced Last Topic Titles
 * @version $Id$
-* @copyright (c) nickvergessen: http://www.flying-bits.org/ - nickvergessen@gmx.de
+* @copyright (c) 2007 nickvergessen nickvergessen@gmx.de http://www.flying-bits.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
@@ -27,7 +26,7 @@ class acp_altt_info
 		return array(
 			'filename'	=> 'acp_altt',
 			'title'		=> 'ALTT_TITLE',
-			'version'	=> '1.2.8',
+			'version'	=> '1.2.9',
 			'modes'		=> array(
 				'config_altt'	=> array(
 					'title'			=> 'ALTT_CONFIG',

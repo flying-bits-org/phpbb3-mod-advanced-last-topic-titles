@@ -1,10 +1,9 @@
 <?php
-
 /**
 *
-* @package - NV advanced last topic titles
+* @package - NV Advanced Last Topic Titles
 * @version $Id$
-* @copyright (c) nickvergessen: http://www.flying-bits.org/ - nickvergessen@gmx.de
+* @copyright (c) 2007 nickvergessen nickvergessen@gmx.de http://www.flying-bits.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License 
 *
 */
@@ -67,8 +66,8 @@ class acp_altt
 			'ALTT_IGNORE_RIGHTS'	=> $config['altt_ignore_rights'],
 			'ALTT_IGNORE_PASSWORD'	=> $config['altt_ignore_password'],
 			'ALTT_ACTIVE'			=> $config['altt_active'],
-			'U_ACTION'				=> $this->u_action)
-		);
+			'U_ACTION'				=> $this->u_action,
+		));
 	}
 }
 

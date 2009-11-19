@@ -45,13 +45,13 @@ $lang = array_merge($lang, array(
 
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
-	'NV_ALTT_MOD'					=> '"NV advanced last topic titles" MOD',
-	'INSTALL_NV_ALTT_MOD'			=> 'Install "NV advanced last topic titles" MOD',
-	'INSTALL_NV_ALTT_MOD_CONFIRM'	=> 'Are you sure you want to install the "NV advanced last topic titles" MOD?',
-	'UPDATE_NV_ALTT_MOD'			=> 'Update "NV advanced last topic titles" MOD',
-	'UPDATE_NV_ALTT_MOD_CONFIRM'	=> 'Are you sure you want to update the "NV advanced last topic titles" MOD?',
-	'UNINSTALL_NV_ALTT_MOD'			=> 'Uninstall "NV advanced last topic titles" MOD',
-	'UNINSTALL_NV_ALTT_MOD_CONFIRM'	=> 'Are you sure you want to uninstall the "NV advanced last topic titles" MOD?',
+	'NV_ALTT_MOD'					=> '"NV advanced last topic titles"',
+	'INSTALL_NV_ALTT_MOD'			=> 'Installer le MOD "NV advanced last topic titles"',
+	'INSTALL_NV_ALTT_MOD_CONFIRM'	=> 'Etes vous sûr de vouloir installer le MOD "NV advanced last topic titles"?',
+	'UPDATE_NV_ALTT_MOD'			=> 'Mettre à jour le MOD "NV advanced last topic titles"',
+	'UPDATE_NV_ALTT_MOD_CONFIRM'	=> 'Etes vous sûr de vouloir mettre à jour le MOD "NV advanced last topic titles"?',
+	'UNINSTALL_NV_ALTT_MOD'			=> 'Désinstaller le MOD "NV advanced last topic titles"',
+	'UNINSTALL_NV_ALTT_MOD_CONFIRM'	=> 'Etes vous sûr de vouloir désinstaller le MOD "NV advanced last topic titles"?',
 ));
 
 ?>

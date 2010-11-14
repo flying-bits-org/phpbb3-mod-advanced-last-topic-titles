@@ -43,6 +43,7 @@ $lang = array_merge($lang, array(
 	'ALTT_IGNORE_RIGHTS'		=> 'Ignorer les droits',
 	'ALTT_IGNORE_RIGHTS_EXP'	=> 'Si vous ignorez les droits, le titre est visible, même si vous n\'êtes pas autorisé à lire le message.',
 
+	'ALTT_PROTECTED'			=> 'Cette forum est protégé.',
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
 	'NV_ALTT_MOD'					=> '"NV advanced last topic titles"',

@@ -43,6 +43,7 @@ $lang = array_merge($lang, array(
 	'ALTT_IGNORE_RIGHTS'		=> 'Ignore permissions',
 	'ALTT_IGNORE_RIGHTS_EXP'	=> 'If you ignore the permissions, the title shows up, even if you are not able to read the post.',
 
+	'ALTT_PROTECTED'			=> 'This forum is protected.',
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
 	'NV_ALTT_MOD'					=> '"NV advanced last topic titles" MOD',

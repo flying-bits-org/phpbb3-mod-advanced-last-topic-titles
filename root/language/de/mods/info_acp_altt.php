@@ -43,6 +43,7 @@ $lang = array_merge($lang, array(
 	'ALTT_IGNORE_RIGHTS'		=> 'Berechtigungen ignorieren',
 	'ALTT_IGNORE_RIGHTS_EXP'	=> 'Der Titel wird dann immer angezeigt, auch wenn man den Beitrag nicht lesen darf.',
 
+	'ALTT_PROTECTED'			=> 'Dieses Forum ist geschützt.',
 	'ALTT_TITLE'				=> 'NV advanced last topic titles',
 
 	'NV_ALTT_MOD'						=> '"NV advanced last topic titles" MOD',

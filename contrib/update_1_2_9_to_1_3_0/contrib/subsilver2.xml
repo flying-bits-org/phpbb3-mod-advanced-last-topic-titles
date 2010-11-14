@@ -26,20 +26,20 @@
 		</installation>
 
 		<link-group>
-			<link type="parent" lang="en" href="../install.xml">Install</link>
-			<link type="parent" lang="de" href="../install.xml">Installations-Anleitung</link>
+			<link type="parent" lang="en" href="../update.xml">Update</link>
+			<link type="parent" lang="de" href="../update.xml">Update-Anleitung</link>
 		</link-group>
 	</header>
 
 	<action-group>
 		<open src="styles/subsilver2/template/forumlist_body.html">
 			<edit>
-				<find><![CDATA[				<!-- IF forumrow.LAST_POST_TIME -->]]></find>
-				<action type="after-add"><![CDATA[					<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></action>
+				<find><![CDATA[<!-- IF forumrow.ALTT_LINK_NAME_SHORT --><p><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a></p><!-- ENDIF -->]]></find>
+				<action type="replace-with"><![CDATA[<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
 
-		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und fÃ¼hre den Installer aus
+		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und führe den Installer aus
 
 Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
 

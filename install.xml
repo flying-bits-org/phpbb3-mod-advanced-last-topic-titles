@@ -17,26 +17,36 @@
 			</author>
 		</author-group>
 
-		<mod-version>1.2.9</mod-version>
+		<mod-version>1.3.0</mod-version>
 
 		<installation>
 			<level>easy</level>
 			<time>240</time>
-			<target-version>3.0.6</target-version>
+			<target-version>3.0.8</target-version>
 		</installation>
 
 		<link-group>
-			<link type="parent" lang="de" href="contrib/update_1_2_7_to_1_2_8/update.xml">Update von 1.2.7 auf 1.2.8</link>
-			<link type="parent" lang="en" href="contrib/update_1_2_7_to_1_2_8/update.xml">Update from 1.2.7 to 1.2.8</link>
+			<link type="parent" lang="de" href="contrib/update_1_2_9_to_1_3_0/update.xml">Update von 1.2.9 auf 1.3.0</link>
+			<link type="parent" lang="en" href="contrib/update_1_2_9_to_1_3_0/update.xml">Update from 1.2.9 to 1.3.0</link>
 			<link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
 			<link type="language" lang="en" href="contrib/de.xml">Manual for German Language-set</link>
 			<link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
-			<link type="language" lang="en" href="contrib/fr.xml">Manual for French Language-set</link>
+			<link type="language" lang="en" href="contrib/fr.xml">Manual for French language-package</link>
 			<link type="template" lang="de" href="contrib/subsilver2.xml">Anleitung für das Style subsilver2</link>
 			<link type="template" lang="en" href="contrib/subsilver2.xml">Manual for subsilver2 Style</link>
 		</link-group>
 
 		<history>
+			<entry>
+				<date>2010-11-15</date>
+				<rev-version>1.3.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Update code to 3.0.8]]></change>
+					<change><![CDATA[Change code to use a static class]]></change>
+					<change><![CDATA[Add alternative language variable when title is blocked.]]></change>
+				</changelog>
+			</entry>
+
 			<entry>
 				<date>2009-11-19</date>
 				<rev-version>1.2.9</rev-version>
@@ -134,6 +144,7 @@
 		<copy>
 			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
 			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
+			<file from="root/includes/nickv/altt.php" to="includes/nickv/altt.php" />
 			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
 			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
 			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
@@ -145,76 +156,30 @@
 			<edit>
 				<find><![CDATA[		$sql_array['SELECT'] .= ', fa.user_id';
 	}]]></find>
-				<action type="after-add"><![CDATA[	$sql_array['LEFT_JOIN'][] = array(//for NV ALTT
-		'FROM'	=> array(TOPICS_TABLE => 't'),
-		'ON'	=> "f.forum_last_post_id = t.topic_last_post_id AND t.topic_moved_id = 0"
-	);
-	$sql_array['SELECT'] .= ', t.topic_title, t.topic_id, t.topic_last_post_id';]]></action>
+				<action type="after-add"><![CDATA[	if (!class_exists('phpbb_nickv_altt'))
+	{
+		include($phpbb_root_path . 'includes/nickv/altt.' . $phpEx);
+	}
+	phpbb_nickv_altt::initialise();
+	$sql_array = phpbb_nickv_altt::inject_sql($sql_array);]]></action>
 			</edit>
 
 			<edit>
 				<find><![CDATA[	while ($row = $db->sql_fetchrow($result))
 	{
 		$forum_id = $row['forum_id'];]]></find>
-				<action type="after-add"><![CDATA[		//for NV ALTT
-		$row['nv_permission_forum_id'] = $row['forum_id'];]]></action>
+				<action type="after-add"><![CDATA[		$row = phpbb_nickv_altt::inject_forum_row($row);]]></action>
 			</edit>
 
 			<edit>
 				<find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
-				<action type="after-add"><![CDATA[				//for NV ALTT
-				$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
-				$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
-				$forum_rows[$parent_id]['nv_permission_forum_id'] = $row['forum_id'];
-				$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];]]></action>
+				<action type="after-add"><![CDATA[				phpbb_nickv_altt::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
 			</edit>
 
 			<edit>
-				<find><![CDATA[			$last_post_subject = $row['forum_last_post_subject'];]]></find>
-				<action type="after-add"><![CDATA[			//for NV ALTT
-			if ($config['altt_active'] && (!$row['forum_password'] || $config['altt_ignore_password']) && ($auth->acl_get('f_read', $row['nv_permission_forum_id']) || $config['altt_ignore_rights']))
-			{
-				$altt_link_name			= ($config['altt_link_name']) ? $row['topic_title'] : $row['forum_last_post_subject'];
-				$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > $config['altt_char_limit'] + 3 )? htmlspecialchars((utf8_substr(htmlspecialchars_decode($altt_link_name), 0, $config['altt_char_limit']) . '...')) : ($altt_link_name);
-				$altt_style_bold		= $config['altt_style_bold'];
-				$altt_style_italic		= $config['altt_style_italic'];
-				$altt_style_adv			= $config['altt_style_adv'];
-				$altt_style_adv2		= $config['altt_style_adv2'];
-				switch ($config['altt_link_url'])
-				{
-					case 1:
-						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id']);
-					break;
-					case 2:
-						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id'] . '&amp;view=unread') . '#unread';
-					break;
-					default:
-						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;p=' . $row['forum_last_post_id']) . '#p' . $row['forum_last_post_id'];
-					break;
-				}
-			}
-			else
-			{
-				$altt_link_name_short = $altt_link_name = $altt_style_bold = $altt_style_italic = $altt_style_adv = $altt_style_adv2 = $altt_link_url = '';
-			}]]></action>
-			</edit>
-
-			<edit>
-				<find><![CDATA[$last_post_subject = $last_post_time = $last_post_url = '';]]></find>
-				<action type="after-add"><![CDATA[			//for NV ALTT
-			$altt_link_name_short = $altt_link_name = $altt_style_bold = $altt_style_italic = $altt_style_adv = $altt_style_adv2 = $altt_link_url = '';]]></action>
-			</edit>
-
-			<edit>
-				<find><![CDATA[=> censor_text($last_post_subject),]]></find>
-				<action type="after-add"><![CDATA[			//for NV ALTT
-			'ALTT_LINK_NAME_SHORT'		=> censor_text($altt_link_name_short),
-			'ALTT_LINK_NAME'			=> censor_text($altt_link_name),
-			'ALTT_STYLE_BOLD'			=> $altt_style_bold,
-			'ALTT_STYLE_ITALIC'			=> $altt_style_italic,
-			'ALTT_STYLE_ADV'			=> $altt_style_adv,
-			'ALTT_STYLE_ADV2'			=> $altt_style_adv2,
-			'U_ALTT_LINK'				=> $altt_link_url,]]></action>
+				<find><![CDATA[			'U_LAST_POST'		=> $last_post_url)
+		);]]></find>
+				<action type="after-add"><![CDATA[		phpbb_nickv_altt::display_information($row);]]></action>
 			</edit>
 		</open>
 
@@ -223,7 +188,7 @@
 				<find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn> {L_POST_BY_AUTHOR} {forumrow.LAST_POSTER_FULL}]]></find>
 				<inline-edit>
 					<inline-find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></inline-find>
-					<inline-action type="after-add"><![CDATA[ <!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><br /><!-- ENDIF -->]]></inline-action>
+					<inline-action type="after-add"><![CDATA[ <!-- IF S_ALTT_ACTIVE --><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --><br /><!-- ENDIF -->]]></inline-action>
 				</inline-edit>
 			</edit>
 		</open>

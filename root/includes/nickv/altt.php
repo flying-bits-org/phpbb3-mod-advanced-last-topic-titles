@@ -21,13 +21,39 @@ if (!defined('IN_PHPBB'))
 */
 class phpbb_nickv_altt
 {
+	/**
+	* Is the MOD activated in the ACP?
+	*/
 	static public $is_active			= true;
+
+	/**
+	* Shall we ignore forum passwords and view the topic-title nevertheless?
+	*/
 	static public $ignore_password		= false;
+
+	/**
+	* Shall we ignore the permissions and view the topic-title nevertheless?
+	*/
 	static public $ignore_permissions	= false;
+
+	/**
+	* Display topic-title or last-post-title?
+	*/
 	static public $use_topic_title		= true;
+
+	/**
+	* Link to topic (1), first-unread-post (2) or to the last post (0 || >2)
+	*/
 	static public $link_url				= 1;
+
+	/**
+	* If the title is longer, we cut it down to this length. (0 means 64 and is the maximum)
+	*/
 	static public $length_limit			= 64;
 
+	/**
+	* Initialise the MOD and populate the config values to the template.
+	*/
 	static public function initialise()
 	{
 		global $config;
@@ -66,6 +92,9 @@ class phpbb_nickv_altt
 		}
 	}
 
+	/**
+	* Extend the query as we need the topic_title and some more values from the TOPICS_TABLE
+	*/
 	static public function inject_sql($sql_array)
 	{
 		if (!self::$is_active) return $sql_array;
@@ -96,14 +125,20 @@ class phpbb_nickv_altt
 		return $sql_array;
 	}
 
+	/**
+	* We need to "cache" the forum_id in a seperated key, so it's not overwritten.
+	*/
 	static public function inject_forum_row($row)
 	{
 		if (!self::$is_active) return $row;
 
-		$row['nv_permission_forum_id'] = $row['forum_id'];
+		$row['nv_permission_forum_id'] = (int) $row['forum_id'];
 		return $row;
 	}
 
+	/**
+	* Put the data we need into the $forum_rows which is used to loop data into the template.
+	*/
 	static public function inject_forum_row_values($forum_rows, $parent_id, $row)
 	{
 		if (!self::$is_active) return $forum_rows;
@@ -115,6 +150,9 @@ class phpbb_nickv_altt
 		return $forum_rows;
 	}
 
+	/**
+	* Display the data, we edit the last row which was published and add our data to it.
+	*/
 	static public function display_information($row)
 	{
 		if (!self::$is_active) return false;

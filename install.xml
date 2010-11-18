@@ -144,7 +144,7 @@
 		<copy>
 			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
 			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
-			<file from="root/includes/nickv/advanced_last_topic_titles.php" to="includes/nickv/advanced_last_topic_titles.php" />
+			<file from="root/includes/mods/advanced_last_topic_titles.php" to="includes/mods/advanced_last_topic_titles.php" />
 			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
 			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
 			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
@@ -156,30 +156,30 @@
 			<edit>
 				<find><![CDATA[		$sql_array['SELECT'] .= ', fa.user_id';
 	}]]></find>
-				<action type="after-add"><![CDATA[	if (!class_exists('phpbb_nickv_advanced_last_topic_titles'))
+				<action type="after-add"><![CDATA[	if (!class_exists('phpbb_mods_advanced_last_topic_titles'))
 	{
-		include($phpbb_root_path . 'includes/nickv/advanced_last_topic_titles.' . $phpEx);
+		include($phpbb_root_path . 'includes/mods/advanced_last_topic_titles.' . $phpEx);
 	}
-	phpbb_nickv_advanced_last_topic_titles::initialise();
-	$sql_array = phpbb_nickv_advanced_last_topic_titles::inject_sql($sql_array);]]></action>
+	phpbb_mods_advanced_last_topic_titles::initialise();
+	$sql_array = phpbb_mods_advanced_last_topic_titles::inject_sql($sql_array);]]></action>
 			</edit>
 
 			<edit>
 				<find><![CDATA[	while ($row = $db->sql_fetchrow($result))
 	{
 		$forum_id = $row['forum_id'];]]></find>
-				<action type="after-add"><![CDATA[		$row = phpbb_nickv_advanced_last_topic_titles::inject_forum_row($row);]]></action>
+				<action type="after-add"><![CDATA[		$row = phpbb_mods_advanced_last_topic_titles::inject_forum_row($row);]]></action>
 			</edit>
 
 			<edit>
 				<find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
-				<action type="after-add"><![CDATA[				phpbb_nickv_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
+				<action type="after-add"><![CDATA[				phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
 			</edit>
 
 			<edit>
 				<find><![CDATA[			'U_LAST_POST'		=> $last_post_url)
 		);]]></find>
-				<action type="after-add"><![CDATA[		phpbb_nickv_advanced_last_topic_titles::display_information($row);]]></action>
+				<action type="after-add"><![CDATA[		phpbb_mods_advanced_last_topic_titles::display_information($row);]]></action>
 			</edit>
 		</open>
 

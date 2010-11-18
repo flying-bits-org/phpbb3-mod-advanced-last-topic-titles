@@ -35,7 +35,7 @@
 		<copy>
 			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
 			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
-			<file from="root/includes/nickv/advanced_last_topic_titles.php" to="includes/nickv/advanced_last_topic_titles.php" />
+			<file from="root/includes/mods/advanced_last_topic_titles.php" to="includes/mods/advanced_last_topic_titles.php" />
 			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
 			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
 			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
@@ -50,18 +50,18 @@
 		'ON'	=> "f.forum_last_post_id = t.topic_last_post_id AND t.topic_moved_id = 0"
 	);
 	$sql_array['SELECT'] .= ', t.topic_title, t.topic_id, t.topic_last_post_id';]]></find>
-				<action type="replace-with"><![CDATA[	if (!class_exists('phpbb_nickv_advanced_last_topic_titles'))
+				<action type="replace-with"><![CDATA[	if (!class_exists('phpbb_mods_advanced_last_topic_titles'))
 	{
-		include($phpbb_root_path . 'includes/nickv/advanced_last_topic_titles.' . $phpEx);
+		include($phpbb_root_path . 'includes/mods/advanced_last_topic_titles.' . $phpEx);
 	}
-	phpbb_nickv_advanced_last_topic_titles::initialise();
-	$sql_array = phpbb_nickv_advanced_last_topic_titles::inject_sql($sql_array);]]></action>
+	phpbb_mods_advanced_last_topic_titles::initialise();
+	$sql_array = phpbb_mods_advanced_last_topic_titles::inject_sql($sql_array);]]></action>
 			</edit>
 
 			<edit>
 				<find><![CDATA[		//for NV ALTT
 		$row['nv_permission_forum_id'] = $row['forum_id'];]]></find>
-				<action type="replace-with"><![CDATA[$row = phpbb_nickv_advanced_last_topic_titles::inject_forum_row($row);]]></action>
+				<action type="replace-with"><![CDATA[$row = phpbb_mods_advanced_last_topic_titles::inject_forum_row($row);]]></action>
 			</edit>
 
 			<edit>
@@ -70,7 +70,7 @@
 				$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
 				$forum_rows[$parent_id]['nv_permission_forum_id'] = $row['forum_id'];
 				$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];]]></find>
-				<action type="replace-with"><![CDATA[phpbb_nickv_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
+				<action type="replace-with"><![CDATA[phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
 			</edit>
 
 			<edit>
@@ -121,7 +121,7 @@
 			<edit>
 				<find><![CDATA[			'U_LAST_POST'		=> $last_post_url)
 		);]]></find>
-				<action type="after-add"><![CDATA[		phpbb_nickv_advanced_last_topic_titles::display_information($row);]]></action>
+				<action type="after-add"><![CDATA[		phpbb_mods_advanced_last_topic_titles::display_information($row);]]></action>
 			</edit>
 		</open>
 

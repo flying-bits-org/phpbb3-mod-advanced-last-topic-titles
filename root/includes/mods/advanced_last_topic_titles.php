@@ -60,7 +60,10 @@ class phpbb_mods_advanced_last_topic_titles
 
 		self::$is_active			= (bool) $config['altt_active'];
 
-		if (!self::$is_active) return;
+		if (!self::$is_active)
+		{
+			return;
+		}
 
 		global $user, $template;
 		$user->add_lang('mods/info_acp_altt');
@@ -97,7 +100,10 @@ class phpbb_mods_advanced_last_topic_titles
 	*/
 	static public function inject_sql($sql_array)
 	{
-		if (!self::$is_active) return $sql_array;
+		if (!self::$is_active)
+		{
+			return $sql_array;
+		}
 
 		// Is the topics-table already left-joined for some SEO-MOD?
 		$already_left_joined = false;
@@ -130,7 +136,10 @@ class phpbb_mods_advanced_last_topic_titles
 	*/
 	static public function inject_forum_row($row)
 	{
-		if (!self::$is_active) return $row;
+		if (!self::$is_active)
+		{
+			return $row;
+		}
 
 		$row['nv_permission_forum_id'] = (int) $row['forum_id'];
 		return $row;
@@ -141,7 +150,10 @@ class phpbb_mods_advanced_last_topic_titles
 	*/
 	static public function inject_forum_row_values($forum_rows, $parent_id, $row)
 	{
-		if (!self::$is_active) return $forum_rows;
+		if (!self::$is_active)
+		{
+			return $forum_rows;
+		}
 
 		$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
 		$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
@@ -155,7 +167,10 @@ class phpbb_mods_advanced_last_topic_titles
 	*/
 	static public function display_information($row)
 	{
-		if (!self::$is_active) return false;
+		if (!self::$is_active)
+		{
+			return false;
+		}
 
 		if ($row['forum_last_post_id'])
 		{

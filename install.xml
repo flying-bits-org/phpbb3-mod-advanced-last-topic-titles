@@ -5,8 +5,11 @@
 	<header>
 		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 
-		<title lang="en">NV advanced last topic titles</title>
 		<title lang="de">NV advanced last topic titles</title>
+		<title lang="en">NV advanced last topic titles</title>
+
+		<author-notes lang="de"><![CDATA[Diese MOD benötigt php5.]]></author-notes>
+		<author-notes lang="en"><![CDATA[This MOD required php5.]]></author-notes>
 
 		<author-group>
 			<author>

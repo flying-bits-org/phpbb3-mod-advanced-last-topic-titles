@@ -41,6 +41,14 @@
 
 		<history>
 			<entry>
+				<date>2011-MM-DD</date>
+				<rev-version>1.3.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Fix topic title is not overwritten by subforums.]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
 				<date>2010-11-15</date>
 				<rev-version>1.3.0</rev-version>
 				<changelog lang="en">
@@ -176,7 +184,7 @@
 
 			<edit>
 				<find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
-				<action type="after-add"><![CDATA[				phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
+				<action type="after-add"><![CDATA[				$forum_rows = phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
 			</edit>
 
 			<edit>

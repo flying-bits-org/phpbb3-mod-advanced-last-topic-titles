@@ -69,7 +69,7 @@ class phpbb_mods_advanced_last_topic_titles
 		$user->add_lang('mods/info_acp_altt');
 
 		self::$ignore_password		= (bool) $config['altt_ignore_password'];
-		self::$ignore_permissions	= (bool) $config['altt_ignore_password'];
+		self::$ignore_permissions	= (bool) $config['altt_ignore_rights'];
 		self::$use_topic_title		= (bool) $config['altt_link_name'];
 		self::$link_url				= (int) $config['altt_link_url'];
 		self::$length_limit			= (($config['altt_char_limit'] <= 0) || ($config['altt_char_limit'] >= 64)) ?  64 : $config['altt_char_limit'];
@@ -155,10 +155,10 @@ class phpbb_mods_advanced_last_topic_titles
 			return $forum_rows;
 		}
 
-		$forum_rows[$parent_id]['topic_title'] = $row['topic_title'];
-		$forum_rows[$parent_id]['topic_id'] = $row['topic_id'];
-		$forum_rows[$parent_id]['nv_permission_forum_id'] = $row['forum_id'];
-		$forum_rows[$parent_id]['forum_password'] = $row['forum_password'];
+		$forum_rows[$parent_id]['topic_title']				= $row['topic_title'];
+		$forum_rows[$parent_id]['topic_id']					= $row['topic_id'];
+		$forum_rows[$parent_id]['nv_permission_forum_id']	= $row['forum_id'];
+		$forum_rows[$parent_id]['forum_password']			= $row['forum_password'];
 		return $forum_rows;
 	}
 
@@ -176,7 +176,6 @@ class phpbb_mods_advanced_last_topic_titles
 		{
 			global $auth;
 
-			$last_post_subject = $row['forum_last_post_subject'];
 			$password_protected = !(self::$ignore_password || !$row['forum_password']);
 			$permissions_protected = !(self::$ignore_permissions || $auth->acl_get('f_read', $row['nv_permission_forum_id']));
 

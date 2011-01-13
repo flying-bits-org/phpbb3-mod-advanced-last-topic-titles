@@ -26,16 +26,27 @@
 		</installation>
 
 		<link-group>
-			<link type="parent" lang="en" href="../install.xml">Install</link>
-			<link type="parent" lang="de" href="../install.xml">Installations-Anleitung</link>
+			<link type="parent" lang="de" href="../../install.xml">Installations-Anleitung</link>
+			<link type="parent" lang="en" href="../../install.xml">Install</link>
 		</link-group>
 	</header>
 
 	<action-group>
-		<open src="styles/subsilver2/template/forumlist_body.html">
+		<copy>
+			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
+			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
+			<file from="root/includes/mods/advanced_last_topic_titles.php" to="includes/mods/advanced_last_topic_titles.php" />
+			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
+			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
+			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
+			<file from="root/install/index.php" to="install/index.php" />
+			<file from="root/umil/*.*" to="umil/*.*" />
+		</copy>
+
+		<open src="includes/functions_display.php">
 			<edit>
-				<find><![CDATA[				<!-- IF forumrow.LAST_POST_TIME -->]]></find>
-				<action type="after-add"><![CDATA[					<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></action>
+				<find><![CDATA[phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></find>
+				<action type="replace-with"><![CDATA[$forum_rows = phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
 			</edit>
 		</open>
 

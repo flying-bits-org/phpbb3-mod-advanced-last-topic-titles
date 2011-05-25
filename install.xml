@@ -41,6 +41,14 @@
 
 		<history>
 			<entry>
+				<date>2011-MM-DD</date>
+				<rev-version>1.3.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[[Fix] "This forum is protected." when topic was moved (Bug: #797)]]></change>
+				</changelog>
+			</entry>
+
+			<entry>
 				<date>2011-01-13</date>
 				<rev-version>1.3.1</rev-version>
 				<changelog lang="en">

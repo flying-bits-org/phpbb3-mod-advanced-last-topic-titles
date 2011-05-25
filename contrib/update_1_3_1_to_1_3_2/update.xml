@@ -5,8 +5,11 @@
 	<header>
 		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 
-		<title lang="en">NV advanced last topic titles</title>
-		<title lang="de">NV advanced last topic titles</title>
+		<title lang="de"><![CDATA[NV advanced last topic titles]]></title>
+		<title lang="en"><![CDATA[NV advanced last topic titles]]></title>
+
+		<author-notes lang="de"><![CDATA[Diese MOD benötigt php5.]]></author-notes>
+		<author-notes lang="en"><![CDATA[This MOD required php5.]]></author-notes>
 
 		<author-group>
 			<author>
@@ -17,7 +20,7 @@
 			</author>
 		</author-group>
 
-		<mod-version>1.3.0</mod-version>
+		<mod-version>1.3.2</mod-version>
 
 		<installation>
 			<level>easy</level>
@@ -26,18 +29,22 @@
 		</installation>
 
 		<link-group>
-			<link type="parent" lang="en" href="../update.xml">Update</link>
-			<link type="parent" lang="de" href="../update.xml">Update-Anleitung</link>
+			<link type="parent" lang="de" href="../../install.xml">Installations-Anleitung</link>
+			<link type="parent" lang="en" href="../../install.xml">Install</link>
 		</link-group>
 	</header>
 
 	<action-group>
-		<open src="styles/subsilver2/template/forumlist_body.html">
-			<edit>
-				<find><![CDATA[<!-- IF forumrow.ALTT_LINK_NAME_SHORT --><p><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a></p><!-- ENDIF -->]]></find>
-				<action type="replace-with"><![CDATA[<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></action>
-			</edit>
-		</open>
+		<copy>
+			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
+			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
+			<file from="root/includes/mods/advanced_last_topic_titles.php" to="includes/mods/advanced_last_topic_titles.php" />
+			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
+			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
+			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
+			<file from="root/install/index.php" to="install/index.php" />
+			<file from="root/umil/*.*" to="umil/*.*" />
+		</copy>
 
 		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und führe den Installer aus
 

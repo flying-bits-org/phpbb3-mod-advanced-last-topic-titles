@@ -26,7 +26,7 @@ class acp_altt_info
 		return array(
 			'filename'	=> 'acp_altt',
 			'title'		=> 'ALTT_TITLE',
-			'version'	=> '1.3.0',
+			'version'	=> '1.3.2',
 			'modes'		=> array(
 				'config_altt'	=> array(
 					'title'			=> 'ALTT_CONFIG',

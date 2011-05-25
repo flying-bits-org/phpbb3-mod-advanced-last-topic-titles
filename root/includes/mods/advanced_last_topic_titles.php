@@ -120,11 +120,11 @@ class phpbb_mods_advanced_last_topic_titles
 		{
 			$sql_array['LEFT_JOIN'][] = array(
 				'FROM'	=> array(TOPICS_TABLE => 't'),
-				'ON'	=> "f.forum_last_post_id = t.topic_last_post_id AND t.topic_moved_id = 0"
+				'ON'	=> "f.forum_last_post_id = t.topic_last_post_id"
 			);
 		}
 
-		$altt_values = array('t.topic_title', 't.topic_id', 't.topic_last_post_id');
+		$altt_values = array('t.topic_title', 't.topic_id', 't.topic_moved_id', 't.topic_last_post_id');
 		$select_values = explode(', ', $sql_array['SELECT']);
 		$sql_array['SELECT'] = implode(', ', array_unique(array_merge($select_values, $altt_values)));
 
@@ -186,13 +186,15 @@ class phpbb_mods_advanced_last_topic_titles
 				$altt_link_name			= (self::$use_topic_title) ? $row['topic_title'] : $row['forum_last_post_subject'];
 				$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > self::$length_limit + 3 )? htmlspecialchars((utf8_substr(htmlspecialchars_decode($altt_link_name), 0, self::$length_limit) . '...')) : ($altt_link_name);
 
+				$real_topic_id = ($row['topic_moved_id']) ? $row['topic_moved_id'] : $row['topic_id'];
+
 				switch (self::$link_url)
 				{
 					case 1:
-						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id']);
+						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $real_topic_id);
 					break;
 					case 2:
-						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $row['topic_id'] . '&amp;view=unread') . '#unread';
+						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;t=' . $real_topic_id . '&amp;view=unread') . '#unread';
 					break;
 					default:
 						$altt_link_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'f=' . $row['forum_id_last_post'] . '&amp;p=' . $row['forum_last_post_id']) . '#p' . $row['forum_last_post_id'];

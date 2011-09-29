@@ -184,6 +184,7 @@ class phpbb_mods_advanced_last_topic_titles
 				global $template, $phpbb_root_path, $phpEx;
 
 				$altt_link_name			= (self::$use_topic_title) ? $row['topic_title'] : $row['forum_last_post_subject'];
+				$altt_link_name			= ($altt_link_name == '') ? 'Re: ' . $row['topic_title'] : $altt_link_name;
 				$altt_link_name_short	= (utf8_strlen(htmlspecialchars_decode($altt_link_name)) > self::$length_limit + 3 )? htmlspecialchars((utf8_substr(htmlspecialchars_decode($altt_link_name), 0, self::$length_limit) . '...')) : ($altt_link_name);
 
 				$real_topic_id = ($row['topic_moved_id']) ? $row['topic_moved_id'] : $row['topic_id'];

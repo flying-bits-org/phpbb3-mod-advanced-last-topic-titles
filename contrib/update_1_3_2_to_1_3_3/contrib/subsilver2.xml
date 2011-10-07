@@ -20,25 +20,32 @@
 			</author>
 		</author-group>
 
-		<mod-version>1.3.2</mod-version>
+		<mod-version>1.3.3</mod-version>
 
 		<installation>
 			<level>easy</level>
 			<time>240</time>
-			<target-version>3.0.8</target-version>
+			<target-version>3.0.9</target-version>
 		</installation>
 
 		<link-group>
-			<link type="parent" lang="en" href="../install.xml">Install</link>
-			<link type="parent" lang="de" href="../install.xml">Installations-Anleitung</link>
+			<link type="parent" lang="en" href="../update.xml">Update</link>
+			<link type="parent" lang="de" href="../update.xml">Update-Anleitung</link>
 		</link-group>
 	</header>
 
 	<action-group>
 		<open src="styles/subsilver2/template/forumlist_body.html">
 			<edit>
-				<find><![CDATA[				<!-- IF forumrow.LAST_POST_TIME -->]]></find>
-				<action type="after-add"><![CDATA[					<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT != '' --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></action>
+				<find><![CDATA[<!-- IF forumrow.ALTT_LINK_NAME_SHORT --><p><a <!-- IF forumrow.ALTT_STYLE_BOLD or forumrow.ALTT_STYLE_ITALIC or forumrow.ALTT_STYLE_ADV -->style="<!-- IF forumrow.ALTT_STYLE_BOLD -->font-weight: bold;<!-- ENDIF --><!-- IF forumrow.ALTT_STYLE_ITALIC -->font-style: italic;<!-- ENDIF --> <!-- IF forumrow.ALTT_STYLE_ADV -->{forumrow.ALTT_STYLE_ADV2}<!-- ENDIF -->"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a></p><!-- ENDIF -->]]></find>
+				<action type="replace-with"><![CDATA[<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --></p><!-- ENDIF -->]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT -->]]></inline-find>
+					<inline-action type="replace-with"><![CDATA[<!-- IF S_ALTT_ACTIVE --><p><!-- IF forumrow.ALTT_LINK_NAME_SHORT != '' -->]]></inline-action>
+				</inline-edit>
 			</edit>
 		</open>
 

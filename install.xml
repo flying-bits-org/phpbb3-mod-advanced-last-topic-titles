@@ -29,8 +29,8 @@
 		</installation>
 
 		<link-group>
-			<link type="parent" lang="de" href="contrib/update_1_3_1_to_1_3_2/update.xml">Update von 1.3.1 auf 1.3.2</link>
-			<link type="parent" lang="en" href="contrib/update_1_3_1_to_1_3_2/update.xml">Update from 1.3.1 to 1.3.2</link>
+			<link type="parent" lang="de" href="contrib/update_1_3_2_to_1_3_3/update.xml">Update von 1.3.2 auf 1.3.3</link>
+			<link type="parent" lang="en" href="contrib/update_1_3_2_to_1_3_3/update.xml">Update from 1.3.2 to 1.3.3</link>
 			<link type="language" lang="de" href="contrib/de.xml">Anleitung für das deutsche Sprachpaket</link>
 			<link type="language" lang="en" href="contrib/de.xml">Manual for German Language-set</link>
 			<link type="language" lang="de" href="contrib/fr.xml">Anleitung für das französische Sprachpaket</link>
@@ -44,6 +44,7 @@
 				<date>2011-MM-DD</date>
 				<rev-version>1.3.3</rev-version>
 				<changelog lang="en">
+					<change><![CDATA[[Fix] "This forum is protected." when topic title is '0']]></change>
 					<change><![CDATA[[Fix] "This forum is protected." when reply does not have a subject (Bug: #901)]]></change>
 				</changelog>
 			</entry>
@@ -216,7 +217,7 @@
 				<find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn> {L_POST_BY_AUTHOR} {forumrow.LAST_POSTER_FULL}]]></find>
 				<inline-edit>
 					<inline-find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></inline-find>
-					<inline-action type="after-add"><![CDATA[ <!-- IF S_ALTT_ACTIVE --><!-- IF forumrow.ALTT_LINK_NAME_SHORT --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --><br /><!-- ENDIF -->]]></inline-action>
+					<inline-action type="after-add"><![CDATA[ <!-- IF S_ALTT_ACTIVE --><!-- IF forumrow.ALTT_LINK_NAME_SHORT != '' --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --><br /><!-- ENDIF -->]]></inline-action>
 				</inline-edit>
 			</edit>
 		</open>

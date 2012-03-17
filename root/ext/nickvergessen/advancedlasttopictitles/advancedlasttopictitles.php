@@ -62,7 +62,7 @@ class phpbb_ext_nickvergessen_advancedlasttopictitles
 		}
 
 		global $user, $template;
-		$user->add_lang('mods/info_acp_altt');
+		$user->add_lang_ext('nickvergessen/advancedlasttopictitles', 'info_acp_advancedlasttopictitles');
 
 		self::$ignore_password		= (bool) $config['altt_ignore_password'];
 		self::$ignore_permissions	= (bool) $config['altt_ignore_rights'];

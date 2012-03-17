@@ -13,7 +13,7 @@
 define('UMIL_AUTO', true);
 define('IN_PHPBB', true);
 define('IN_INSTALL', true);
-$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : '../';
+$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : '../../../';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
 
@@ -29,7 +29,8 @@ if (!file_exists($phpbb_root_path . 'umil/umil_auto.' . $phpEx))
 $mod_name = 'NV_ALTT_MOD';
 
 $version_config_name = 'altt_mod_version';
-$language_file = 'mods/info_acp_altt';
+//$language_file = 'info_acp_advancedasttopictitles';
+$user->add_lang_ext('nickvergessen/advancedlasttopictitles', 'info_acp_advancedlasttopictitles');
 
 $versions = array(
 	// Version 1.2.0

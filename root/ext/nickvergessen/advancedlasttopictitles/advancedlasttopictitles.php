@@ -19,7 +19,7 @@ if (!defined('IN_PHPBB'))
 /**
 *
 */
-class phpbb_mods_advanced_last_topic_titles
+class phpbb_ext_nickvergessen_advancedlasttopictitles
 {
 	/**
 	* Is the MOD activated in the ACP?

@@ -19,12 +19,12 @@ if (!defined('IN_PHPBB'))
 /**
 * @package module_install
 */
-class acp_altt_info
+class phpbb_ext_nickvergessen_advancedlasttopictitles_acp_advancedlasttopictitles_info
 {
 	function module()
 	{
 		return array(
-			'filename'	=> 'acp_altt',
+			'filename'	=> 'advancedlasttopictitles_module',
 			'title'		=> 'ALTT_TITLE',
 			'version'	=> '1.3.3',
 			'modes'		=> array(

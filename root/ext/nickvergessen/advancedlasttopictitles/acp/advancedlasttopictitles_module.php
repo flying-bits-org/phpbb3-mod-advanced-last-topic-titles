@@ -19,7 +19,7 @@ if (!defined('IN_PHPBB'))
 /**
 * @package acp
 */
-class acp_altt
+class phpbb_ext_nickvergessen_advancedlasttopictitles_acp_advancedlasttopictitles_module
 {
 	var $u_action;
 
@@ -29,7 +29,7 @@ class acp_altt
 		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
 
 		$user->add_lang('acp/common');
-		$this->tpl_name = 'acp_altt';
+		$this->tpl_name = 'advancedlasttopictitles_main';
 		$this->page_title = $user->lang['ALTT_TITLE'];
 		add_form_key('acp_altt');
 

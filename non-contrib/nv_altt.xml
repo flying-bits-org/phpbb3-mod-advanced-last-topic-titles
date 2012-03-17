@@ -8,26 +8,26 @@
 		<announcement>http://www.flying-bits.org/viewtopic.php?f=7</announcement>
 		<mod_version>
 			<major>1</major>
-			<minor>3</minor>
-			<revision>3</revision>
+			<minor>4</minor>
+			<revision>0</revision>
 			<release></release>
 		</mod_version>
 		<installation>
 			<level>easy</level>
-			<time>120</time>
+			<time>60</time>
 			<target-version>
-				<target-primary>3.0.9</target-primary>
+				<target-primary>3.1.0</target-primary>
 				<target-major allow="exact">3</target-major>
-				<target-minor allow="exact">0</target-minor>
+				<target-minor allow="exact">1</target-minor>
 			</target-version>
 		</installation>
 		<upgrade>
 			<level>easy</level>
-			<time>120</time>
+			<time>60</time>
 			<target-version>
 				<target-primary>3.0.9</target-primary>
 				<target-major allow="exact">3</target-major>
-				<target-minor allow="exact">0</target-minor>
+				<target-minor allow="exact">1</target-minor>
 			</target-version>
 		</upgrade>
 	</nv_altt>

@@ -1,10 +1,9 @@
 <?php
 /**
 *
-* @package - NV Advanced Last Topic Titles
-* @version $Id$
-* @copyright (c) 2007 nickvergessen nickvergessen@gmx.de http://www.flying-bits.org
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* @package NV Advanced Last Topic Titles
+* @copyright (c) 2012 nickvergessen <nickvergessen@gmx.de> http://www.flying-bits.org/
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
@@ -107,6 +106,9 @@ $versions = array(
 
 	// Version 1.3.3
 	'1.3.3'	=> array(),
+
+	// Version 1.4.0
+	'1.4.0'	=> array(),
 );
 
 // Include the UMIL Auto file and everything else will be handled automatically.

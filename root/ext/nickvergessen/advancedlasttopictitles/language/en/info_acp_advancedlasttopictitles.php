@@ -1,10 +1,11 @@
 <?php
 /**
 *
-* @package - NV Advanced Last Topic Titles
-* @version $Id$
-* @copyright (c) 2007 nickvergessen nickvergessen@gmx.de http://www.flying-bits.org
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+* info_acp_advancedasttopictitles [English]
+*
+* @package NV Advanced Last Topic Titles
+* @copyright (c) 2012 nickvergessen <nickvergessen@gmx.de> http://www.flying-bits.org/
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
@@ -12,6 +13,7 @@ if (!defined('IN_PHPBB'))
 {
 	exit;
 }
+
 if (empty($lang) || !is_array($lang))
 {
 	$lang = array();

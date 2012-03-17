@@ -8,9 +8,6 @@
 		<title lang="de"><![CDATA[NV advanced last topic titles]]></title>
 		<title lang="en"><![CDATA[NV advanced last topic titles]]></title>
 
-		<author-notes lang="de"><![CDATA[Diese MOD benötigt php5.]]></author-notes>
-		<author-notes lang="en"><![CDATA[This MOD required php5.]]></author-notes>
-
 		<author-group>
 			<author>
 				<realname>Joas Schilling</realname>
@@ -20,12 +17,12 @@
 			</author>
 		</author-group>
 
-		<mod-version>1.3.3</mod-version>
+		<mod-version>1.4.0</mod-version>
 
 		<installation>
 			<level>easy</level>
-			<time>240</time>
-			<target-version>3.0.9</target-version>
+			<time>60</time>
+			<target-version>3.1.0</target-version>
 		</installation>
 
 		<link-group>
@@ -40,6 +37,14 @@
 		</link-group>
 
 		<history>
+			<entry>
+				<date>2012-MM-DD</date>
+				<rev-version>1.4.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Turned the MOD into an extension]]></change>
+				</changelog>
+			</entry>
+
 			<entry>
 				<date>2011-10-07</date>
 				<rev-version>1.3.3</rev-version>
@@ -171,68 +176,13 @@
 
 	<action-group>
 		<copy>
-			<file from="root/adm/style/acp_altt.html" to="adm/style/acp_altt.html" />
 			<file from="root/adm/mods/nv_altt_version.php" to="adm/mods/nv_altt_version.php" />
-			<file from="root/includes/mods/advanced_last_topic_titles.php" to="includes/mods/advanced_last_topic_titles.php" />
-			<file from="root/includes/acp/acp_altt.php" to="includes/acp/acp_altt.php" />
-			<file from="root/includes/acp/info/acp_altt.php" to="includes/acp/info/acp_altt.php" />
-			<file from="root/language/en/mods/info_acp_altt.php" to="language/en/mods/info_acp_altt.php" />
-			<file from="root/install/index.php" to="install/index.php" />
+			<file from="root/ext/*.*" to="ext/*.*" />
+			<file from="root/install/*.*" to="install/*.*" />
 			<file from="root/umil/*.*" to="umil/*.*" />
 		</copy>
 
-		<open src="includes/functions_display.php">
-			<edit>
-				<find><![CDATA[		$sql_array['SELECT'] .= ', fa.user_id';
-	}]]></find>
-				<action type="after-add"><![CDATA[	if (!class_exists('phpbb_mods_advanced_last_topic_titles'))
-	{
-		include($phpbb_root_path . 'includes/mods/advanced_last_topic_titles.' . $phpEx);
-	}
-	phpbb_mods_advanced_last_topic_titles::initialise();
-	$sql_array = phpbb_mods_advanced_last_topic_titles::inject_sql($sql_array);]]></action>
-			</edit>
-
-			<edit>
-				<find><![CDATA[	while ($row = $db->sql_fetchrow($result))
-	{
-		$forum_id = $row['forum_id'];]]></find>
-				<action type="after-add"><![CDATA[		$row = phpbb_mods_advanced_last_topic_titles::inject_forum_row($row);]]></action>
-			</edit>
-
-			<edit>
-				<find><![CDATA[				$forum_rows[$parent_id]['forum_id_last_post'] = $forum_id;]]></find>
-				<action type="after-add"><![CDATA[				$forum_rows = phpbb_mods_advanced_last_topic_titles::inject_forum_row_values($forum_rows, $parent_id, $row);]]></action>
-			</edit>
-
-			<edit>
-				<find><![CDATA[			'U_LAST_POST'		=> $last_post_url)
-		);]]></find>
-				<action type="after-add"><![CDATA[		phpbb_mods_advanced_last_topic_titles::display_information($row);]]></action>
-			</edit>
-		</open>
-
-		<open src="styles/prosilver/template/forumlist_body.html">
-			<edit>
-				<find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn> {L_POST_BY_AUTHOR} {forumrow.LAST_POSTER_FULL}]]></find>
-				<inline-edit>
-					<inline-find><![CDATA[<!-- IF forumrow.LAST_POST_TIME --><dfn>{L_LAST_POST}</dfn>]]></inline-find>
-					<inline-action type="after-add"><![CDATA[ <!-- IF S_ALTT_ACTIVE --><!-- IF forumrow.ALTT_LINK_NAME_SHORT != '' --><a <!-- IF ALTT_STYLE -->style="{ALTT_STYLE}"<!-- ENDIF --> href="{forumrow.U_ALTT_LINK}" title="{forumrow.ALTT_LINK_NAME}">{forumrow.ALTT_LINK_NAME_SHORT}</a><!-- ELSE -->{L_ALTT_PROTECTED}<!-- ENDIF --><br /><!-- ENDIF -->]]></inline-action>
-				</inline-edit>
-			</edit>
-		</open>
-
-		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und führe den Installer aus
-
-Leere den Cache im "Administrations-Bereich" (ACP) > "Allgemein" > "Den Cache leeren"
-
-Aktualisiere deine Styles:
-		"Administrations-Bereich" (ACP) > "Styles" > "Templates" > jedes > "Aktualisieren"]]></diy-instructions>
-		<diy-instructions lang="en"><![CDATA[Browse to install/index.php and run the installer
-
-Clear your cache in the "Administration Control Panel" (ACP) > "General" > "Purge the cache"
-
-Refresh your Styles:
-		"Administration Control Panel" (ACP) > "Styles" > "Templates" > each > "refresh"]]></diy-instructions>
+		<diy-instructions lang="de"><![CDATA[Rufe install/index.php auf und führe den Installer aus]]></diy-instructions>
+		<diy-instructions lang="en"><![CDATA[Browse to install/index.php and run the installer]]></diy-instructions>
 	</action-group>
 </mod>

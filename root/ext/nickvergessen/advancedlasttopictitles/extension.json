@@ -1,0 +1,23 @@
+{
+	"name": "nickvergessen/advancedlasttopictitles",
+	"type": "phpbb3-extension",
+	"description": "",
+	"homepage": "https://github.com/nickvergessen/phpbb3-mod-advanced-last-topic-titles/",
+	"version": "1.4.0",
+	"time": "2012-MM-DD 16:00:00",
+	"licence": "GNU GPL v2",
+	"authors": [{
+			"name": "Joas Schilling",
+			"username": "nickvergessen",
+			"email": "nickvergessen@gmx.de",
+			"homepage": "http://www.flying-bits.org/",
+			"role": "Developer"
+		}],
+	"require": {
+		"php": ">=5.3.2",
+		"phpbb": "3.1.0"
+	},
+	"extra": {
+		"display-name": "NV Advanced Last Topic Titles"
+	}
+}

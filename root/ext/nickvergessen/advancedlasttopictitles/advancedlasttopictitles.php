@@ -2,8 +2,7 @@
 /**
 *
 * @package NV Advanced Last Topic Titles
-* @version $Id$
-* @copyright (c) 2005 phpBB Group
+* @copyright (c) 2012 nickvergessen <nickvergessen@gmx.de> http://www.flying-bits.org/
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -16,9 +15,6 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-/**
-*
-*/
 class phpbb_ext_nickvergessen_advancedlasttopictitles
 {
 	/**
